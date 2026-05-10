@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tikkun HaNefesh Foundation &#8212; Complete Site Mockup</title>
+<style>
+/* ═══════════════════════════════════════════════
+   TIKKUN HANEFESH FOUNDATION — SITE STYLESHEET
+   Exact match to tikkun-three.vercel.app
+   Fonts: Instrument Sans (body) + Helvetica Now Display (headlines)
+   Extracted via computed styles from live site
+═══════════════════════════════════════════════ */
+
+/* ── GOOGLE FONTS (closest available substitute for Helvetica Now Display) ── */
+
+:root {
+  /* ── EXACT COLORS FROM LIVE SITE ── */
+  --cream:      #EBDED4;   /* hero / main background */
+  --cream-light:#FAF8F5;   /* card backgrounds */
+  --grey:       #F5F6F5;   /* alternate sections */
+  --black:      #000000;   /* dark sections, nav text */
+  --ink:        #0A0A0A;   /* body text */
+  --white:      #FFFFFF;
+  --red:        #E63226;   /* accent / eyebrow / CTA sections */
+  --gold:       #B5924C;   /* our addition for vetting/wisdom sections */
+  --gold-light: #D4AE72;
+  --border:     rgba(10,10,10,0.12);
+
+  /* ── TYPOGRAPHY ── */
+  /* Helvetica Now Display is not on Google Fonts — using system Helvetica Neue fallback */
+  /* For production: license Helvetica Now Display from Monotype */
+  --font-display: "Helvetica Now Display","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-body:    -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --font-serif:   Georgia,"Times New Roman",serif;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ── TYPOGRAPHY SCALE ── */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 9vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+.display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.body-lg  { font-size: 1.125rem; line-height: 1.75; color: var(--ink); }
+.body-md  { font-size: 1rem;     line-height: 1.75; color: var(--ink); }
+.body-sm  { font-size: 0.875rem; line-height: 1.7;  color: var(--ink); }
+.body-xs  { font-size: 0.8rem;   line-height: 1.65; color: var(--ink); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.875rem;
+  display: block;
+}
+.eyebrow-gold { color: var(--gold) !important; }
+.eyebrow-white { color: rgba(255,255,255,0.5) !important; }
+
+/* ── LAYOUT ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 3rem; }
+
+.section-cream  { background: var(--cream);  }
+.section-white  { background: var(--white);  }
+.section-grey   { background: var(--grey);   }
+.section-black  { background: var(--black);  }
+.section-red    { background: var(--red);    }
+.section-ink    { background: var(--ink);    }
+
+.py-sm  { padding-top: 4rem;  padding-bottom: 4rem;  }
+.py-md  { padding-top: 6rem;  padding-bottom: 6rem;  }
+.py-lg  { padding-top: 8rem;  padding-bottom: 8rem;  }
+.py-xl  { padding-top: 11rem; padding-bottom: 11rem; }
+
+/* ── NAV ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  padding: 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand { display: flex; align-items: center; gap: 0.625rem; }
+.nav-logo-icon {
+  width: 34px; height: 34px;
+  background: var(--ink);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav-logo-icon svg { width: 18px; height: 18px; fill: white; }
+.nav-wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.nav-wordmark-top {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.nav-wordmark-sub {
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.45);
+  line-height: 1.2;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(10,10,10,0.65);
+  transition: color 0.15s;
+}
+.nav-link:hover { color: var(--ink); }
+.nav-link.active { color: var(--ink); font-weight: 500; }
+.nav-cta {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--white) !important;
+  background: var(--ink);
+  padding: 0.625rem 1.5rem;
+  border-radius: 100vmax;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.8; }
+
+/* ── TICKER / MARQUEE ── */
+.ticker-wrap {
+  background: var(--ink);
+  overflow: hidden;
+  padding: 0.875rem 0;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-flex;
+  animation: ticker-scroll 35s linear infinite;
+}
+.ticker-item {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  padding: 0 2.5rem;
+}
+.ticker-sep { color: rgba(255,255,255,0.3); }
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 100vmax;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s, transform 0.1s;
+  text-decoration: none;
+}
+.btn:hover { opacity: 0.85; }
+.btn-dark  { background: var(--ink);   color: var(--white); }
+.btn-white { background: var(--white); color: var(--ink);   }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.35); }
+.btn-outline:hover { border-color: rgba(255,255,255,0.7); }
+.btn-gold  { background: var(--gold);  color: var(--ink);   }
+.btn-red   { background: var(--red);   color: var(--white); }
+.btn-sm { font-size: 0.8125rem; padding: 0.5rem 1.25rem; }
+.btn-square { border-radius: 0; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ── PLACEHOLDER BOXES ── */
+.placeholder {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.03),
+    rgba(0,0,0,0.03) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  border: 1.5px dashed rgba(0,0,0,0.2);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  min-height: 120px;
+}
+.placeholder-dark {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  border: 1.5px dashed rgba(255,255,255,0.2);
+}
+.placeholder-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+}
+.placeholder-label-dark { color: rgba(255,255,255,0.3); }
+.placeholder-desc {
+  font-size: 0.8rem;
+  color: rgba(0,0,0,0.25);
+  font-style: italic;
+}
+.placeholder-desc-dark { color: rgba(255,255,255,0.2); }
+
+/* ── SITE FOOTER ── */
+.site-footer {
+  background: #0A0A14;
+  padding: 4rem 3rem 2rem;
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-col-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: block;
+}
+.footer-col p, .footer-col a {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.42);
+  line-height: 2;
+  display: block;
+}
+.footer-col a:hover { color: rgba(255,255,255,0.7); }
+.footer-col-brand .brand-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.footer-bottom {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.22);
+}
+
+/* ── FORM ELEMENTS ── */
+.form-field { display: flex; flex-direction: column; gap: 0.375rem; margin-bottom: 1.25rem; }
+.form-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.form-label-light { color: rgba(255,255,255,0.7); }
+.form-hint { font-size: 0.72rem; color: rgba(10,10,10,0.45); font-style: italic; margin-top: -0.2rem; }
+.req { color: var(--red); }
+.form-input, .form-select, .form-textarea {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  background: var(--grey);
+  border: 1px solid rgba(10,10,10,0.15);
+  padding: 0.75rem 1rem;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  border-radius: 0;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(10,10,10,0.08);
+  background: var(--white);
+}
+.form-textarea { resize: vertical; min-height: 110px; }
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230A0A0A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+.form-divider { border: none; border-top: 1px solid rgba(10,10,10,0.08); margin: 1.5rem 0; }
+
+.check-group { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 0.375rem; }
+.check-col   { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.375rem; }
+.check-item  { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem; color: var(--ink); }
+.check-item input { width: 16px; height: 16px; accent-color: var(--ink); cursor: pointer; flex-shrink: 0; }
+
+/* ── WISDOM / QUOTE SECTION ── */
+.wisdom-section { background: var(--ink); padding: 6rem 3rem; }
+.wisdom-inner { max-width: 1200px; margin: 0 auto; }
+.wisdom-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  align-items: end;
+  padding-bottom: 3rem; margin-bottom: 4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.07); margin-bottom: 1px; }
+.quote-card { background: var(--ink); padding: 2.25rem 2rem; position: relative; transition: background 0.2s; }
+.quote-card:hover { background: #111; }
+.quote-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); opacity: 0; transition: opacity 0.2s; }
+.quote-card:hover::before { opacity: 1; }
+.quote-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+.quote-era { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); background: rgba(181,146,76,0.1); border: 1px solid rgba(181,146,76,0.25); padding: 0.18rem 0.6rem; }
+.quote-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.15); }
+.quote-source { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.quote-text { font-family: var(--font-serif); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.88); line-height: 1.8; margin-bottom: 1.5rem; }
+.qm { font-family: var(--font-serif); font-size: 2.5rem; line-height: 0; color: var(--gold); opacity: 0.4; vertical-align: -0.35em; margin-right: 0.1em; }
+.quote-attr { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; }
+.quote-attr-name { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: var(--gold-light); margin-bottom: 0.15rem; }
+.quote-attr-src  { font-size: 0.67rem; color: rgba(255,255,255,0.28); font-style: italic; }
+.quote-empty { background: rgba(255,255,255,0.01); min-height: 180px; }
+.rebbe-card { display: grid; grid-template-columns: 1fr 1fr; background: rgba(181,146,76,0.04); border: 1px solid rgba(181,146,76,0.15); }
+.rebbe-left  { padding: 2.25rem; }
+.rebbe-right { padding: 2.25rem; border-left: 1px solid rgba(255,255,255,0.07); }
+.rebbe-right-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+.rebbe-right-body  { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 0.75rem; }
+.rebbe-right-note  { font-size: 0.78rem; color: rgba(255,255,255,0.3); font-style: italic; line-height: 1.7; }
+.wisdom-close { margin: 2.5rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; max-width: 680px; }
+.wisdom-close p { font-family: var(--font-serif); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.42); line-height: 1.85; }
+.wisdom-close strong { color: rgba(255,255,255,0.65); font-style: normal; }
+
+/* ── PRINCIPLE CARDS ── */
+.prin-list { display: flex; flex-direction: column; gap: 1px; }
+.prin-item { display: grid; grid-template-columns: 200px 1fr; border: 1px solid rgba(255,255,255,0.07); }
+.prin-label { background: #111; padding: 1.375rem; display: flex; flex-direction: column; justify-content: center; }
+.prin-hebrew { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--gold); margin-bottom: 0.25rem; letter-spacing: -0.01em; }
+.prin-english { font-size: 0.62rem; color: rgba(255,255,255,0.3); font-style: italic; line-height: 1.4; }
+.prin-body { padding: 1.375rem; background: rgba(255,255,255,0.02); }
+.prin-text     { font-size: 0.875rem; color: rgba(255,255,255,0.58); line-height: 1.75; margin-bottom: 0.5rem; }
+.prin-practical{ font-size: 0.78rem; color: rgba(255,255,255,0.3); font-style: italic; }
+
+/* Cream-bg principle cards (Join Our Network page) */
+.prin-item-light { display: grid; grid-template-columns: 200px 1fr; border: 1px solid rgba(10,10,10,0.1); background: var(--white); }
+.prin-label-navy { background: #1B3A6B; padding: 1.375rem; display: flex; flex-direction: column; justify-content: center; }
+.prin-body-light { padding: 1.375rem; }
+.prin-text-light { font-size: 0.875rem; color: rgba(10,10,10,0.6); line-height: 1.75; margin-bottom: 0.5rem; }
+.prin-practical-light { font-size: 0.78rem; color: rgba(10,10,10,0.38); font-style: italic; }
+
+/* ── ACKNOWLEDGMENT CHECKBOXES ── */
+.ack-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.ack-item { display: flex; align-items: flex-start; gap: 0.875rem; padding: 0.9rem 1rem; background: var(--grey); border: 1px solid rgba(10,10,10,0.1); cursor: pointer; }
+.ack-item input { width: 15px; height: 15px; margin-top: 3px; accent-color: var(--ink); flex-shrink: 0; cursor: pointer; }
+.ack-item span { font-size: 0.8125rem; color: var(--ink); line-height: 1.65; }
+
+/* ── SECTION HEADERS (form) ── */
+.form-section { background: var(--white); border: 1px solid rgba(10,10,10,0.1); margin-bottom: 1.25rem; overflow: hidden; }
+.form-section-head { background: #1B3A6B; padding: 1.125rem 1.5rem; display: flex; align-items: baseline; gap: 0.875rem; }
+.form-section-num { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: rgba(255,255,255,0.15); line-height: 1; min-width: 2rem; }
+.form-section-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--white); line-height: 1.3; }
+.form-section-sub { display: block; font-family: var(--font-body); font-size: 0.6rem; font-weight: 400; font-style: normal; color: var(--gold-light); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.15rem; }
+.form-section-body { padding: 1.75rem; }
+
+/* ── PROGRESS BAR (form) ── */
+.form-progress { display: flex; justify-content: space-between; background: var(--white); border: 1px solid rgba(10,10,10,0.1); padding: 1.125rem 1.5rem; margin-bottom: 1.25rem; }
+.form-step { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; flex: 1; position: relative; }
+.form-step:not(:last-child)::after { content: ''; position: absolute; top: 13px; left: calc(50% + 13px); right: calc(-50% + 13px); height: 1px; background: rgba(10,10,10,0.12); }
+.form-step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--grey); border: 2px solid rgba(10,10,10,0.12); display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 600; color: rgba(10,10,10,0.4); }
+.form-step-label { font-size: 0.56rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(10,10,10,0.35); text-align: center; }
+
+/* ── DONOR TIER TABLE ── */
+.donor-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(10,10,10,0.08); }
+.donor-row { display: grid; grid-template-columns: 1fr 1fr 2fr; background: var(--white); }
+.donor-row-header { background: var(--ink); }
+.donor-cell { padding: 1.25rem 1.5rem; }
+.donor-tier { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: -0.01em; }
+.donor-amount { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--ink); }
+.donor-benefits { font-size: 0.875rem; color: rgba(10,10,10,0.65); line-height: 1.7; }
+
+/* ── TRUST BADGES ── */
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.trust-item { padding: 2.5rem; border-right: 1px solid rgba(10,10,10,0.08); }
+.trust-item:last-child { border-right: none; }
+.trust-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; color: rgba(10,10,10,0.06); line-height: 1; margin-bottom: 0.75rem; }
+.trust-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
+.trust-body { font-size: 0.9rem; color: rgba(10,10,10,0.55); line-height: 1.75; }
+
+/* ── INLINE REBBE QUOTE ── */
+.rebbe-inline { border-left: 3px solid var(--gold); padding: 1.25rem 1.5rem; background: rgba(181,146,76,0.05); margin: 1.5rem 0; }
+.rebbe-inline-text { font-family: var(--font-serif); font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.88); line-height: 1.75; margin-bottom: 0.625rem; }
+.rebbe-inline-attr { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.rebbe-inline-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); font-style: italic; margin-top: 0.375rem; }
+
+/* ── PHASE CARDS (Our Approach) ── */
+.phase-item { padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); }
+.phase-item:first-child { border-top: none; }
+.phase-num { font-family: var(--font-display); font-size: 5rem; font-weight: 700; color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: 0.5rem; }
+.phase-title { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; margin-bottom: 0.375rem; }
+.phase-subtitle { font-size: 0.875rem; color: rgba(255,255,255,0.45); font-style: italic; margin-bottom: 1.5rem; }
+.phase-body { font-size: 0.9375rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 1.5rem; max-width: 620px; }
+.phase-expects { list-style: none; }
+.phase-expects li { font-size: 0.875rem; color: rgba(255,255,255,0.5); padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: flex-start; gap: 0.75rem; }
+.phase-expects li::before { content: '→'; color: var(--gold); flex-shrink: 0; margin-top: 0.05rem; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .container, .container-narrow { padding: 0 1.5rem; }
+  .site-nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; }
+  .wisdom-header { grid-template-columns: 1fr; }
+  .quote-grid { grid-template-columns: 1fr; }
+  .rebbe-card { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .donor-row { grid-template-columns: 1fr; }
+  .prin-item, .prin-item-light { grid-template-columns: 1fr; }
+  .standards-grid { grid-template-columns: 1fr; }
+}
+
+.sw-bar {position:sticky;top:0;z-index:999;background:#0B1E3D;display:flex;overflow-x:auto;border-bottom:2px solid #B5924C;scrollbar-width:none;}
+.sw-bar::-webkit-scrollbar {display:none;}
+.sw-btn {flex-shrink:0;padding:0.65rem 1.4rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.38);background:transparent;border:none;border-bottom:2px solid transparent;margin-bottom:-2px;cursor:pointer;white-space:nowrap;transition:color 0.15s;}
+.sw-btn:hover {color:rgba(255,255,255,0.72);}
+.sw-btn.sw-active {color:#B5924C;border-bottom-color:#B5924C;}
+.sw-label {flex-shrink:0;padding:0.65rem 1rem 0.65rem 1.4rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:0.52rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);display:flex;align-items:center;border-right:1px solid rgba(255,255,255,0.08);margin-right:0.25rem;white-space:nowrap;}
+.site-nav {position:relative !important;top:auto !important;}
+</style>
+</head>
+<body>
+<div class="sw-bar"><span class="sw-label">MOCKUP</span><button class="sw-btn sw-active" onclick="showPage(0)">Home</button>
+<button class="sw-btn" onclick="showPage(1)">Our Approach</button>
+<button class="sw-btn" onclick="showPage(2)">For Referrers</button>
+<button class="sw-btn" onclick="showPage(3)">Join Our Network</button>
+<button class="sw-btn" onclick="showPage(4)">About</button>
+<button class="sw-btn" onclick="showPage(5)">Support Our Work</button>
+<button class="sw-btn" onclick="showPage(6)">Begin Your Journey</button>
+<button class="sw-btn" onclick="showPage(7)">Contact</button>
+</div>
+<nav class="site-nav">
+  <div class="nav-brand">
+    <div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div class="nav-wordmark"><span class="nav-wordmark-top">Tikkun HaNefesh</span><span class="nav-wordmark-sub">Foundation</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#" class="nav-link" onclick="showPage(1);return false;">Our Approach</a>
+    <a href="#" class="nav-link" onclick="showPage(2);return false;">For Referrers</a>
+    <a href="#" class="nav-link" onclick="showPage(3);return false;">Join Our Network</a>
+    <a href="#" class="nav-link" onclick="showPage(4);return false;">About</a>
+    <a href="#" class="nav-link" onclick="showPage(5);return false;">Support Our Work</a>
+    <a href="#" class="nav-cta" onclick="showPage(6);return false;">Begin Your Journey</a>
+  </div>
+</nav>
+<div class="page-view" id="page-0" style="display:block;">
+<style>
+/* ── PAGE-SPECIFIC STYLES ── */
+.hero {
+  min-height: 100svh;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.hero-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 2.5rem;
+}
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.5);
+}
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 11vw, 10rem);
+  font-weight: 700;
+  line-height: 0.875;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--ink);
+  max-width: 900px;
+}
+.hero-sub {
+  font-size: 1.125rem;
+  color: rgba(10,10,10,0.65);
+  line-height: 1.75;
+  max-width: 520px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero-scroll {
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.35);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-scroll span { font-size: 1rem; }
+
+/* Why We Exist */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.why-headline { color: var(--white); margin-bottom: 1.5rem; }
+.why-body { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.85; margin-bottom: 1rem; }
+
+/* Four phases */
+.phases-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(10,10,10,0.08);
+}
+.phases-intro { font-size: 1rem; color: rgba(10,10,10,0.55); line-height: 1.85; }
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(10,10,10,0.08);
+}
+.phase-card { background: var(--grey); padding: 2rem 1.75rem; }
+.phase-card-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; color: rgba(10,10,10,0.07); line-height: 1; margin-bottom: 1rem; }
+.phase-card-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+.phase-card-body { font-size: 0.875rem; color: rgba(10,10,10,0.55); line-height: 1.75; }
+
+/* Who We Serve */
+.serve-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(10,10,10,0.08);
+}
+.serve-card { background: var(--white); padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.serve-card-label { display: inline-block; background: var(--cream); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(10,10,10,0.5); padding: 0.3rem 0.75rem; }
+.serve-card-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; line-height: 1; }
+.serve-card-body { font-size: 0.9rem; color: rgba(10,10,10,0.55); line-height: 1.8; flex: 1; }
+.serve-card-links { display: flex; flex-direction: column; gap: 0.5rem; }
+.serve-card-link { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); display: flex; align-items: center; gap: 0.375rem; border-bottom: 1px solid rgba(10,10,10,0.15); padding-bottom: 0.375rem; }
+.serve-card-link:hover { color: var(--red); border-color: var(--red); }
+
+/* Red CTA section */
+.cta-red-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.cta-red-headline { color: var(--ink); margin-bottom: 1.5rem; }
+.cta-red-body { font-size: 1rem; color: rgba(10,10,10,0.65); line-height: 1.85; margin-bottom: 2rem; }
+.cta-red-aside { border-left: 2px solid rgba(10,10,10,0.2); padding-left: 2.5rem; }
+.cta-red-aside-text { font-family: var(--font-serif); font-size: 1.25rem; font-style: italic; color: rgba(10,10,10,0.75); line-height: 1.75; margin-bottom: 1rem; }
+.cta-red-aside-attr { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(10,10,10,0.45); }
+</style>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">A structured path to alternative healing — rooted in Jewish wisdom</p>
+    <h1 class="hero-headline">THERE IS<br>A WAY<br>THROUGH.</h1>
+    <p class="hero-sub">Tikkun HaNefesh Foundation guides individuals through a complete healing journey — from screening and preparation, through the experience itself, to full integration and lasting change.</p>
+    <div class="hero-ctas">
+      <a href="begin.html" class="btn btn-dark">Begin Your Journey</a>
+      <a href="our-approach.html" class="btn btn-outline" style="color:var(--ink);border-color:rgba(10,10,10,0.3);">Learn How It Works</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>↓</span> Scroll to learn more</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">THERE IS A WAY THROUGH</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">A COMPLETE CONTAINER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">FOUR DELIBERATE PHASES</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">TIKKUN HANEFESH</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">REPAIR THE SOUL</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">THE FULL PROCESS</span><span class="ticker-item ticker-sep">/</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">THERE IS A WAY THROUGH</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">A COMPLETE CONTAINER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">FOUR DELIBERATE PHASES</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">TIKKUN HANEFESH</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">REPAIR THE SOUL</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">THE FULL PROCESS</span><span class="ticker-item ticker-sep">/</span>
+  </div>
+</div>
+
+<!-- WHY WE EXIST -->
+<section class="section-black py-lg">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <span class="eyebrow eyebrow-white">Why We Exist</span>
+        <h2 class="display-lg why-headline">THE JEWISH<br>COMMUNITY<br>DESERVES<br>BETTER.</h2>
+      </div>
+      <div>
+        <p class="why-body">The Jewish community has crisis support. What's been missing is something deeper.</p>
+        <p class="why-body">There are organizations that will help someone get into rehab. Refer them to a therapist. Hold them through a crisis. That work matters deeply.</p>
+        <p class="why-body">But a growing number of people are seeking something different. They are not in crisis. They are stuck — in old patterns, unresolved pain, spiritual disconnection. And they are looking for alternative healing that speaks their language, honors their values, and holds them in a responsible process.</p>
+        <p class="why-body">What they encounter instead — even in spaces that claim to be aligned with their community — are healers who skip the screening, skip the preparation, and move people through an experience without any integration on the other side. The experience is powerful. What's missing is everything around it.</p>
+        <p class="why-body">Until now, there has been no dedicated home for that complete journey within the Jewish world. Tikkun HaNefesh Foundation exists to fill that gap.</p>
+        <a href="about.html" class="btn btn-outline" style="margin-top:1.5rem;">About Our Mission</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-grey py-lg">
+  <div class="container">
+    <div class="phases-header">
+      <div>
+        <span class="eyebrow">How It Works</span>
+        <h2 class="display-lg" style="color:var(--ink);">A COMPLETE<br>CONTAINER.<br>FOUR PHASES.</h2>
+      </div>
+      <p class="phases-intro">Most people who pursue alternative healing never experience lasting change — not because the healing isn't real, but because they skip the preparation and the integration. We have watched this pattern play out repeatedly: two people enter the same experience and have completely different outcomes. The difference is almost never the experience itself. It is how prepared they were coming in, and how supported they were in the weeks and months that followed. The people who truly transform are the ones who committed to the full process. We exist to hold that process.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS ALTERNATIVE HEALING -->
+<section class="section-white py-md">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;">
+      <div>
+        <span class="eyebrow">A Note on Language</span>
+        <h2 class="display-md" style="color:var(--ink);">WHAT DO WE MEAN BY "ALTERNATIVE" HEALING?</h2>
+      </div>
+      <div>
+        <p style="font-size:1rem;color:rgba(10,10,10,0.65);line-height:1.85;margin-bottom:1rem;">The term "alternative healing" covers a wide range of therapeutic modalities that exist outside conventional medical and psychiatric treatment. These are approaches that work with the whole person — body, mind, and soul — often reaching dimensions of human experience that standard talk therapy or medication cannot access.</p>
+        <p style="font-size:1rem;color:rgba(10,10,10,0.65);line-height:1.85;margin-bottom:1rem;">This includes somatic and body-based therapies, breathwork, depth psychological approaches, experiential and expressive modalities, neuromodulation, and — where clinically appropriate and legally available — guided plant medicine or psychedelic-assisted processes. These approaches share a common thread: they work with non-ordinary states of consciousness, embodied experience, or depth psychological processes to access and resolve what conventional treatment often cannot reach.</p>
+        <p style="font-size:1rem;color:rgba(10,10,10,0.65);line-height:1.85;margin-bottom:1.5rem;">The evidence base for many of these modalities is growing rapidly. What was once considered fringe is now the subject of serious clinical research at major institutions. The question is no longer whether these approaches work. The question is how to pursue them safely, responsibly, and with integrity.</p>
+        <div style="border-left:3px solid var(--gold);padding:1.25rem 1.5rem;background:rgba(181,146,76,0.05);">
+          <p style="font-size:0.9375rem;color:rgba(10,10,10,0.7);line-height:1.8;font-style:italic;">That question — how to pursue genuine healing without compromising clinical safety or spiritual integrity — is exactly what Tikkun HaNefesh Foundation was built to answer for the Jewish community.</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(10,10,10,0.08);margin-top:3rem;">
+      <div style="background:var(--grey);padding:1.5rem 1.25rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Somatic &amp; Body</p>
+        <p style="font-size:0.82rem;color:rgba(10,10,10,0.6);line-height:1.7;">Somatic therapy, breathwork, holotropic breathing, EMDR — working through the body's nervous system to access and release stored trauma.</p>
+      </div>
+      <div style="background:var(--grey);padding:1.5rem 1.25rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Depth &amp; Experiential</p>
+        <p style="font-size:0.82rem;color:rgba(10,10,10,0.6);line-height:1.7;">Jungian depth psychology, IFS, psychodrama, Gestalt — working with the deeper layers of psyche, memory, and relational patterns.</p>
+      </div>
+      <div style="background:var(--grey);padding:1.5rem 1.25rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Expressive &amp; Creative</p>
+        <p style="font-size:0.82rem;color:rgba(10,10,10,0.6);line-height:1.7;">Art, music, movement, and narrative — using creative expression to process what cannot yet be spoken directly.</p>
+      </div>
+      <div style="background:var(--grey);padding:1.5rem 1.25rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Neuromodulation</p>
+        <p style="font-size:0.82rem;color:rgba(10,10,10,0.6);line-height:1.7;">TMS, neurofeedback — clinically validated approaches working directly with brain activity for treatment-resistant depression, anxiety, and trauma.</p>
+      </div>
+      <div style="background:var(--grey);padding:1.5rem 1.25rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Guided Medicine Work</p>
+        <p style="font-size:0.82rem;color:rgba(10,10,10,0.6);line-height:1.7;">Where clinically appropriate and legally available — psilocybin, ketamine, MDMA-assisted therapy and others, held within a structured container.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES GRID -->
+<section class="section-grey py-md">
+  <div class="container">
+    <div style="margin-bottom:2.5rem;">
+      <span class="eyebrow">The Four Phases</span>
+      <h2 class="display-md" style="color:var(--ink);">WHAT MAKES OUR<br>APPROACH DIFFERENT.</h2>
+    </div>
+    <div class="phases-grid">
+      <div class="phase-card">
+        <div class="phase-card-num">01</div>
+        <div class="phase-card-title">Intake &amp; Screening</div>
+        <p class="phase-card-body">Every journey begins with honest assessment. We look at your history, your goals, your clinical picture, and your readiness. This is where the right path is identified.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-card-num">02</div>
+        <div class="phase-card-title">Preparation</div>
+        <p class="phase-card-body">Intentional preparation is what separates transformation from experience. We help you arrive ready — mentally, spiritually, and practically. Preparation is the phase most providers skip.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-card-num">03</div>
+        <div class="phase-card-title">Experience</div>
+        <p class="phase-card-body">You are never placed and abandoned. We connect you with Torah-aligned healers matched to your profile. You enter with preparation. You leave with an integration plan already in place.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-card-num">04</div>
+        <div class="phase-card-title">Integration</div>
+        <p class="phase-card-body">The real work begins after. Integration is where insight becomes change. We walk with you through this phase to ensure the experience takes root — not just an experience, but lasting change.</p>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center;">
+      <a href="our-approach.html" class="btn btn-dark">Learn More About Our Approach</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="section-white py-lg">
+  <div class="container">
+    <span class="eyebrow">Who We Serve</span>
+    <h2 class="display-md" style="color:var(--ink);margin-bottom:3rem;">WHETHER YOU ARE SEEKING HEALING,<br>REFERRING, OR SUPPORTING —<br>YOU ARE IN THE RIGHT PLACE.</h2>
+    <div class="serve-grid">
+      <div class="serve-card">
+        <span class="serve-card-label">Seeking Help</span>
+        <div class="serve-card-title">YOU DON'T HAVE TO FIGURE THIS OUT ALONE.</div>
+        <p class="serve-card-body">You may be in pain. You may be watching someone you love struggle. You may have tried the conventional paths and felt something essential was missing. Tikkun HaNefesh Foundation will walk with you — from your first question through every phase of your healing journey.</p>
+        <div class="serve-card-links">
+          <a href="begin.html" class="serve-card-link">Begin Your Intake →</a>
+          <a href="our-approach.html" class="serve-card-link">Learn About the Process →</a>
+        </div>
+      </div>
+      <div class="serve-card">
+        <span class="serve-card-label">Referring a Client</span>
+        <div class="serve-card-title">A CREDIBLE PLACE TO SEND THEM.</div>
+        <p class="serve-card-body">You are trusted. People come to you when they don't know where else to turn. And increasingly, they are asking about alternative healing — modalities you may believe in but have had nowhere responsible to send them. Tikkun HaNefesh Foundation is that place.</p>
+        <div class="serve-card-links">
+          <a href="for-referrers.html" class="serve-card-link">Our Clinical Framework →</a>
+          <a href="contact.html" class="serve-card-link">Make a Referral →</a>
+        </div>
+      </div>
+      <div class="serve-card">
+        <span class="serve-card-label">Supporting the Mission</span>
+        <div class="serve-card-title">FUND THE CONTAINER THAT MAKES THIS POSSIBLE.</div>
+        <p class="serve-card-body">There is a gap in the Jewish world. You know it. You have seen the limitations of what currently exists for people seeking deeper healing — and you believe something better is possible. Your support funds the intake process, the preparation support, the integration follow-through.</p>
+        <div class="serve-card-links">
+          <a href="support.html" class="serve-card-link">Our Mission &amp; Impact →</a>
+          <a href="support.html" class="serve-card-link">Partner With Us →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY TRUST US -->
+<section class="section-black py-lg">
+  <div class="container">
+    <span class="eyebrow eyebrow-white">Why Trust Us</span>
+    <div class="trust-grid" style="margin-top:2.5rem;border:1px solid rgba(255,255,255,0.08);">
+      <div class="trust-item" style="border-color:rgba(255,255,255,0.08);">
+        <div class="trust-num">01</div>
+        <div class="trust-title" style="color:var(--white);">Founded on Principle</div>
+        <p class="trust-body" style="color:rgba(255,255,255,0.5);">Tikkun HaNefesh Foundation was built by Aaron Stefansky with one conviction: that the Jewish community deserves a complete, responsible path to alternative healing — not a patchwork of referrals, but a structured process held by people who take the work seriously.</p>
+      </div>
+      <div class="trust-item" style="border-color:rgba(255,255,255,0.08);">
+        <div class="trust-num">02</div>
+        <div class="trust-title" style="color:var(--white);">Rabbinical Guidance</div>
+        <p class="trust-body" style="color:rgba(255,255,255,0.5);">Our rabbinical advisory ensures every aspect of our approach is grounded in and aligned with Torah values. Spiritual integrity is not an add-on — it is built into the foundation. We vet every practitioner against three specific principles of Jewish law.</p>
+      </div>
+      <div class="trust-item" style="border-color:rgba(255,255,255,0.08);">
+        <div class="trust-num">03</div>
+        <div class="trust-title" style="color:var(--white);">Clinical Responsibility</div>
+        <p class="trust-body" style="color:rgba(255,255,255,0.5);">Our clinical advisory team oversees screening, contraindication review, and integration support. The safety and wellbeing of every participant is non-negotiable. We do not place people in experiences that are not suited to them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RED CTA -->
+<section class="section-red py-xl">
+  <div class="container">
+    <div class="cta-red-inner">
+      <div>
+        <span class="eyebrow" style="color:rgba(10,10,10,0.5);">Ready to Begin</span>
+        <h2 class="display-lg cta-red-headline">THE JOURNEY STARTS WITH A SINGLE STEP.</h2>
+        <p class="cta-red-body">If you or someone you love is ready to begin — or even just ready to ask the first question — we are here. We will walk the rest of it with you.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="begin.html" class="btn btn-dark">Begin Your Journey</a>
+          <a href="contact.html" class="btn btn-square" style="background:transparent;border:1px solid rgba(10,10,10,0.3);color:var(--ink);border-radius:100vmax;">Contact Us</a>
+        </div>
+        <p style="margin-top:1.25rem;font-size:0.72rem;color:rgba(10,10,10,0.4);font-style:italic;">501(c)(3) status pending. Donations accepted. Full tax-deductibility upon approval.</p>
+      </div>
+      <div class="cta-red-aside">
+        <p class="cta-red-aside-text">"The Jewish community has always known that healing the soul and healing the body are not separate endeavors. We are building the structure that makes both possible — together."</p>
+        <p class="cta-red-aside-attr">Aaron Stefansky · Founder &amp; Executive Director</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+</div>
+<div class="page-view" id="page-1" style="display:none;">
+<style>
+.approach-hero { background: var(--cream); padding: 8rem 3rem 5rem; }
+.approach-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
+.approach-hero-right { padding-bottom: 0.5rem; }
+/* Phase detail layout */
+.phases-container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+.phase-detail { display: grid; grid-template-columns: 160px 1fr; gap: 4rem; padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.08); }
+.phase-detail:first-child { border-top: none; }
+.phase-detail-num { font-family: var(--font-display); font-size: 6rem; font-weight: 700; color: rgba(255,255,255,0.05); line-height: 1; padding-top: 0.25rem; }
+.phase-detail-content { }
+.phase-detail-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--white); letter-spacing: -0.015em; margin-bottom: 0.375rem; }
+.phase-detail-subtitle { font-size: 0.9375rem; color: rgba(255,255,255,0.4); font-style: italic; margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.phase-detail-body { font-size: 0.9375rem; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 1.75rem; }
+.phase-detail-expects-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.875rem; }
+.phase-detail-expects { list-style: none; }
+.phase-detail-expects li { font-size: 0.875rem; color: rgba(255,255,255,0.5); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: flex-start; gap: 0.875rem; }
+.phase-detail-expects li::before { content: '→'; color: var(--gold); flex-shrink: 0; margin-top: 0.05rem; }
+.phase-detail-cta { margin-top: 1.75rem; }
+/* Commitment bar */
+.commitment-bar { background: var(--red); padding: 4rem 3rem; text-align: center; }
+.commitment-bar-inner { max-width: 720px; margin: 0 auto; }
+.commitment-headline { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: var(--ink); line-height: 0.95; margin-bottom: 1rem; }
+.commitment-sub { font-size: 1rem; color: rgba(10,10,10,0.65); margin-bottom: 2rem; }
+</style>
+<!-- HERO -->
+<section class="approach-hero">
+  <div class="approach-hero-inner">
+    <div>
+      <span class="eyebrow">The Four-Phase Container</span>
+      <h1 class="display-xl" style="color:var(--ink);">HEALING IS NOT AN EVENT.<br>IT IS A PROCESS.</h1>
+    </div>
+    <div class="approach-hero-right">
+      <p class="body-lg" style="color:rgba(10,10,10,0.65);margin-bottom:1.5rem;">Most people who pursue alternative healing do so without preparation and without integration. We built Tikkun HaNefesh Foundation around a different conviction: that the preparation and the integration are not optional additions — they are the work.</p>
+      <p style="font-size:0.9rem;color:rgba(10,10,10,0.5);line-height:1.8;">Without them, nothing lasts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE KEY INSIGHT -->
+<section class="section-red" style="padding:4rem 3rem;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+      <div>
+        <span class="eyebrow" style="color:rgba(10,10,10,0.45);">What We've Observed</span>
+        <h2 class="display-md" style="color:var(--ink);margin-bottom:0;">THE DIFFERENCE BETWEEN THE PEOPLE WHO TRANSFORM AND THE PEOPLE WHO DON'T IS NOT THE EXPERIENCE. IT IS HOW THEY CAME INTO IT — AND WHAT HAPPENED AFTER.</h2>
+      </div>
+      <div>
+        <p style="font-size:1.0625rem;color:rgba(10,10,10,0.7);line-height:1.85;margin-bottom:1rem;">We have watched this pattern play out repeatedly. Two people can enter the same experience, with the same facilitator, in the same space. One is transformed. One is destabilized or simply unchanged. The difference is almost never the experience itself.</p>
+        <p style="font-size:1.0625rem;color:rgba(10,10,10,0.7);line-height:1.85;margin-bottom:1rem;">The difference is preparation — the inner work done before, the intention set, the nervous system readied, the safety built. And integration — the structured process of anchoring what arose into something that actually changes how a person lives.</p>
+        <p style="font-size:1rem;color:rgba(10,10,10,0.55);line-height:1.85;font-style:italic;">This is not a theory. This is what we have seen, again and again, in our own experience and in the experience of the people we serve. It is the reason the four-phase model is not optional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">PREPARATION IS THE PHASE MOST PROVIDERS SKIP</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">THE REAL WORK BEGINS AFTER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">YOU ARE NEVER PLACED AND ABANDONED</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">INSIGHT WITHOUT INTEGRATION IS JUST AN EXPERIENCE</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">FOUR PHASES — NO SHORTCUTS</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">EVERY HEALER VETTED — CLINICALLY AND HALACHICALLY</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">MUSSAR AS AN INTEGRATION FRAMEWORK</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">PREPARATION IS THE PHASE MOST PROVIDERS SKIP</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">THE REAL WORK BEGINS AFTER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">YOU ARE NEVER PLACED AND ABANDONED</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">INSIGHT WITHOUT INTEGRATION IS JUST AN EXPERIENCE</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">FOUR PHASES — NO SHORTCUTS</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">EVERY HEALER VETTED — CLINICALLY AND HALACHICALLY</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">MUSSAR AS AN INTEGRATION FRAMEWORK</span><span class="ticker-item ticker-sep">/</span>
+  </div>
+</div>
+
+<!-- PHASES DETAIL -->
+<section class="section-black py-lg">
+  <div class="phases-container">
+
+    <div class="phase-detail">
+      <div class="phase-detail-num">01</div>
+      <div class="phase-detail-content">
+        <div class="phase-detail-title">INTAKE &amp; SCREENING</div>
+        <p class="phase-detail-subtitle">Every journey begins with honest assessment.</p>
+        <p class="phase-detail-body">Before anything else, we need to understand who you are — your history, your goals, your clinical picture, and your readiness. This is not a formality. It is the foundation of everything that follows.</p>
+        <p class="phase-detail-body">Our intake process is thorough by design. We screen across mental health history, medical history, substance history, current life stability, and healing intention. We use a structured clinical framework to identify which modalities are appropriate for you — and which are not. We do not place people in experiences that are not suited to them.</p>
+        <p class="phase-detail-body">This is also where we begin to understand your spiritual context — your relationship with Jewish practice, your values, and what you are carrying into this work.</p>
+        <div class="phase-detail-expects-label">What You Can Expect</div>
+        <ul class="phase-detail-expects">
+          <li>A structured digital assessment covering clinical, personal, and spiritual dimensions</li>
+          <li>Modality matching — your results surface the healing approaches best suited to your profile</li>
+          <li>A follow-up conversation with our clinical team to review your assessment and answer your questions</li>
+          <li>Complete confidentiality — your information is reviewed only by our clinical team</li>
+        </ul>
+        <div class="phase-detail-cta">
+          <a href="begin.html" class="btn btn-white">Begin Your Intake Assessment</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-detail">
+      <div class="phase-detail-num">02</div>
+      <div class="phase-detail-content">
+        <div class="phase-detail-title">PREPARATION</div>
+        <p class="phase-detail-subtitle">Intentional preparation is what separates transformation from experience.</p>
+        <p class="phase-detail-body">Preparation is the phase most providers skip. It is also the phase that determines whether the experience that follows will be integrated or wasted.</p>
+        <p class="phase-detail-body">We have watched this play out enough times to say it plainly: two people can enter the same experience, with the same facilitator, in the same space — and have completely different outcomes. The difference is almost never the experience. It is the preparation. The person who arrived with intention set, inner work already begun, nervous system genuinely readied — that person has somewhere to put what arises. The person who arrived cold has nowhere to stand when the ground shifts.</p>
+        <p class="phase-detail-body">We take preparation seriously because we have seen what happens when it is absent. People arrive at powerful healing experiences unprepared — overwhelmed, ungrounded, without the inner resources to meet what arises. They leave with fragments they cannot assemble into change.</p>
+        <p class="phase-detail-body">Our preparation process builds the internal container before the external one is entered. It is practical, psychological, and spiritual — and it is calibrated to your specific pathway and healing intention.</p>
+        <div class="phase-detail-expects-label">What You Can Expect</div>
+        <ul class="phase-detail-expects">
+          <li>Personalized preparation guidance based on your matched modality and healing goals</li>
+          <li>Somatic and breathwork practices to build nervous system capacity</li>
+          <li>Jewish spiritual preparation — Hitbonenut, Hitbodedut, relevant Torah teachings</li>
+          <li>A structured preparation checklist — practical and spiritual</li>
+          <li>Ongoing access to your preparation portal and support team</li>
+        </ul>
+        <div class="phase-detail-cta">
+          <a href="contact.html" class="btn btn-outline">Contact Us to Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-detail">
+      <div class="phase-detail-num">03</div>
+      <div class="phase-detail-content">
+        <div class="phase-detail-title">EXPERIENCE</div>
+        <p class="phase-detail-subtitle">You are never placed and abandoned.</p>
+        <p class="phase-detail-body">The experience phase is where you work with a healer, a modality, or a ceremonial container that has been matched to your specific profile. This may be a psychedelic medicine ceremony, a somatic intensive, a depth therapy process, or another form of alternative healing — depending on what your intake assessment identified as appropriate.</p>
+        <p class="phase-detail-body">What distinguishes our approach is not the experience itself — it is the container around it. You enter with preparation. You are supported throughout. You leave with a clear integration plan already in place.</p>
+        <p class="phase-detail-body">Our healers are vetted for clinical competence, ethical practice, and Torah alignment. We do not refer to anyone we have not evaluated. We do not place participants in experiences that have not been clinically reviewed for their specific situation.</p>
+        <div class="phase-detail-expects-label">What You Can Expect</div>
+        <ul class="phase-detail-expects">
+          <li>Placement with a vetted, Torah-aligned healer matched to your profile and goals</li>
+          <li>Pre-experience clinical review and final clearance</li>
+          <li>Facilitation support throughout the experience</li>
+          <li>An integration plan developed before the experience begins — not after</li>
+        </ul>
+        <div class="phase-detail-cta">
+          <a href="begin.html" class="btn btn-white">Begin Your Journey</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-detail">
+      <div class="phase-detail-num">04</div>
+      <div class="phase-detail-content">
+        <div class="phase-detail-title">INTEGRATION</div>
+        <p class="phase-detail-subtitle">The real work begins after.</p>
+        <p class="phase-detail-body">Integration is the most underserved phase in alternative healing — and the most important one. Without it, the most powerful experience in the world remains just that: an experience. The insight does not translate. The change does not hold.</p>
+        <p class="phase-detail-body">This is the other half of what we have observed again and again. The person who transforms is not just the person who prepared well — it is the person who had somewhere to take it afterward. Who had a structure waiting for them on the other side. Who was not left to figure out alone what to do with what arose. The experience cracks something open. Integration is what determines whether what was revealed becomes a foundation or a wound.</p>
+        <p class="phase-detail-body">We walk with participants through the integration phase because we know that this is where the experience either takes root or evaporates. Integration is where the work of healing becomes the work of living differently.</p>
+        <p class="phase-detail-body">Our integration process is structured, supported, and spiritually grounded. It draws on Jewish wisdom traditions — particularly Mussar, the practice of character refinement — as a framework for turning insight into lasting change.</p>
+        <div class="phase-detail-expects-label">What You Can Expect</div>
+        <ul class="phase-detail-expects">
+          <li>A structured integration framework — guided reflection over a defined period following the experience</li>
+          <li>Mussar practice pairings — character trait work matched to your integration themes</li>
+          <li>Access to your integration portal — journaling frameworks, reflection prompts, and check-ins</li>
+          <li>Ongoing support from your integration guide</li>
+          <li>Referral to integration therapists and coaches as needed</li>
+        </ul>
+        <div class="phase-detail-cta">
+          <a href="begin.html" class="btn btn-white">Begin the Process</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMMITMENT BAR -->
+<div class="commitment-bar">
+  <div class="commitment-bar-inner">
+    <h2 class="commitment-headline">EVERY PARTICIPANT MOVES THROUGH ALL FOUR PHASES.<br>THERE ARE NO SHORTCUTS.</h2>
+    <p class="commitment-sub">This is not a limitation. It is the reason it works.</p>
+    <a href="begin.html" class="btn btn-dark">Begin Your Journey</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+</div>
+<div class="page-view" id="page-2" style="display:none;">
+<style>
+/* HERO */
+.ref-hero { background: var(--cream); padding: 8rem 3rem 5rem; }
+.ref-hero-inner { max-width: 1200px; margin: 0 auto; }
+.ref-audience-tags { display: flex; gap: 2px; margin-bottom: 2rem; }
+.ref-tag { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; background: var(--ink); color: rgba(235,222,212,0.7); padding: 0.3rem 0.875rem; }
+.ref-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
+
+/* DIFFERENTIATORS */
+.ref-diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(10,10,10,0.08); margin-top: 2.5rem; }
+.ref-diff-grid .ref-diff-item:last-child { grid-column: 1 / -1; max-width: 50%; }
+.ref-diff-item { background: var(--white); padding: 2rem 1.75rem; }
+.ref-diff-num { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: rgba(10,10,10,0.06); line-height: 1; margin-bottom: 0.75rem; }
+.ref-diff-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
+.ref-diff-body { font-size: 0.9rem; color: rgba(10,10,10,0.6); line-height: 1.75; }
+
+/* PROCESS SECTION */
+.ref-process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 2.5rem; }
+.ref-steps { display: flex; flex-direction: column; }
+.ref-step { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(10,10,10,0.08); }
+.ref-step:last-child { border-bottom: none; }
+.ref-step-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: rgba(10,10,10,0.07); line-height: 1; min-width: 2.5rem; padding-top: 0.1rem; }
+.ref-step-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.4rem; }
+.ref-step-body { font-size: 0.9rem; color: rgba(10,10,10,0.58); line-height: 1.75; }
+.ref-cta-box { background: var(--ink); padding: 2.5rem; }
+.ref-cta-title { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--white); line-height: 0.95; margin-bottom: 1rem; }
+.ref-cta-body { font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1.75rem; }
+</style>
+<!-- HERO -->
+<section class="ref-hero">
+  <div class="ref-hero-inner">
+    <div class="ref-audience-tags">
+      <span class="ref-tag">Rabbis</span>
+      <span class="ref-tag">Therapists</span>
+      <span class="ref-tag">Community Leaders</span>
+    </div>
+    <div class="ref-hero-grid">
+      <div>
+        <h1 class="display-xl" style="color:var(--ink);">YOU FINALLY<br>HAVE SOMEWHERE<br>CREDIBLE<br>TO SEND<br>THEM.</h1>
+      </div>
+      <div>
+        <p class="body-lg" style="color:rgba(10,10,10,0.65);margin-bottom:1.5rem;">People trust you. They come to you when they don't know where else to turn. And increasingly, they are asking about alternative healing — modalities you may believe in but have had nowhere responsible to refer them.</p>
+        <p class="body-md" style="color:rgba(10,10,10,0.55);margin-bottom:2rem;">Tikkun HaNefesh Foundation is that place. Our model is clinically overseen, rabbinically guided, and built around a complete four-phase process — not a single session.</p>
+        <a href="contact.html" class="btn btn-dark">Contact Us to Discuss a Referral</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT MAKES A REFERRAL DIFFERENT -->
+<section class="section-grey py-md">
+  <div class="container">
+    <span class="eyebrow">What Makes a Referral to Us Different</span>
+    <h2 class="display-md" style="color:var(--ink);">WHEN YOU REFER TO US,<br>YOU REFER TO A PROCESS.</h2>
+    <div class="ref-diff-grid">
+      <div class="ref-diff-item">
+        <div class="ref-diff-num">01</div>
+        <div class="ref-diff-title">A Complete Process</div>
+        <p class="ref-diff-body">When you refer someone to us, they enter a four-phase process — Intake, Preparation, Experience, Integration. They are <strong>held throughout</strong>. Nothing is left to chance.</p>
+      </div>
+      <div class="ref-diff-item">
+        <div class="ref-diff-num">02</div>
+        <div class="ref-diff-title">Clinical Oversight</div>
+        <p class="ref-diff-body"><strong>Faith Niece, M.A., LMHC, LMFT, CSAT, CMAT</strong> oversees our clinical framework. We screen every participant before placement. No one enters an experience without clinical clearance.</p>
+      </div>
+      <div class="ref-diff-item">
+        <div class="ref-diff-num">03</div>
+        <div class="ref-diff-title">Torah Alignment Throughout</div>
+        <p class="ref-diff-body">Every healer has been evaluated against our halachic vetting standard. <strong>Rabbi Yosef Sonnenschein</strong> provides rabbinical advisory. Spiritual integrity is built into every placement.</p>
+      </div>
+      <div class="ref-diff-item">
+        <div class="ref-diff-num">04</div>
+        <div class="ref-diff-title">Not Just the Experience</div>
+        <p class="ref-diff-body">There are religious and Jewish-adjacent healers who understand this community but skip screening, skip preparation, and skip integration. They take people through an experience and consider the work done. <strong>We do not operate that way.</strong> The experience is one phase of four — never the whole of it.</p>
+      </div>
+      <div class="ref-diff-item">
+        <div class="ref-diff-num">05</div>
+        <div class="ref-diff-title">You Stay in the Loop</div>
+        <p class="ref-diff-body">With participant consent, we keep referring providers informed throughout the full process. You made the referral. You deserve to know how it unfolds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     WISDOM SECTION — NEW INSERT
+══════════════════════════════════════ -->
+<section class="wisdom-section">
+  <div class="wisdom-inner">
+    <div class="wisdom-header">
+      <div>
+        <span class="eyebrow eyebrow-gold">Jewish Wisdom Across the Generations</span>
+        <h2 class="display-lg" style="color:var(--white);">THE CALL<br>HAS ALWAYS<br>BEEN THERE.</h2>
+      </div>
+      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.48);line-height:1.85;">The obligation to heal — and to do so with integrity — is not new in Jewish thought. Across centuries, sages and leaders have affirmed that no person should be forced to compromise their faith in pursuit of genuine healing. Tikkun HaNefesh Foundation is built on this inheritance.</p>
+    </div>
+
+    <div class="quote-grid">
+      <div class="quote-card">
+        <div class="quote-badge">
+          <span class="quote-era">~200 CE</span>
+          <span class="quote-dot"></span>
+          <span class="quote-source">Talmud Bavli</span>
+        </div>
+        <p class="quote-text"><span class="qm">&ldquo;</span>He who saves a single soul, it is as if he has saved an entire world.&rdquo;</p>
+        <div class="quote-attr">
+          <p class="quote-attr-name">Mishnah Sanhedrin 4:5</p>
+          <p class="quote-attr-src">Talmud Bavli</p>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-badge">
+          <span class="quote-era">12th Century</span>
+          <span class="quote-dot"></span>
+          <span class="quote-source">Maimonides</span>
+        </div>
+        <p class="quote-text"><span class="qm">&ldquo;</span>Since maintaining a healthy and sound body is among the ways of G&#x2011;d — for it is impossible to understand or know anything about the Creator if one is sick — therefore a person must distance oneself from things which harm the body.&rdquo;</p>
+        <div class="quote-attr">
+          <p class="quote-attr-name">Maimonides</p>
+          <p class="quote-attr-src">Mishneh Torah, Hilchot De'ot 4:1</p>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-badge">
+          <span class="quote-era">1865–1935</span>
+          <span class="quote-dot"></span>
+          <span class="quote-source">Rav Kook</span>
+        </div>
+        <p class="quote-text"><span class="qm">&ldquo;</span>The primary role of teshuvah is for the person to return to himself, to the root of his soul.&rdquo;</p>
+        <div class="quote-attr">
+          <p class="quote-attr-name">Rabbi Avraham Yitzchak HaKohen Kook</p>
+          <p class="quote-attr-src">Orot HaTeshuvah 15:10</p>
+        </div>
+      </div>
+
+      <div class="quote-empty"></div>
+    </div>
+
+    <!-- Rebbe Full Card -->
+    <div class="rebbe-card">
+      <div class="rebbe-left">
+        <div class="quote-badge">
+          <span class="quote-era">1979</span>
+          <span class="quote-dot"></span>
+          <span class="quote-source">The Lubavitcher Rebbe</span>
+        </div>
+        <p class="quote-text" style="font-size:1.05rem;"><span class="qm">&ldquo;</span>A situation must be established where a person who needs this treatment — for his health and peace of mind — should not be forced to look for it in places where he will be trapped in the net of idolatry.&rdquo;</p>
+        <div class="quote-attr">
+          <p class="quote-attr-name">The Lubavitcher Rebbe, Rabbi Menachem M. Schneerson</p>
+          <p class="quote-attr-src">Public address, July 8, 1979</p>
+        </div>
+      </div>
+      <div class="rebbe-right">
+        <p class="rebbe-right-label">This Is the Problem We Exist to Solve</p>
+        <p class="rebbe-right-body">In 1979, the Rebbe identified exactly what Jewish individuals seeking alternative healing face: spaces where genuine therapeutic benefit is embedded within spiritual frameworks incompatible with Jewish faith.</p>
+        <p class="rebbe-right-body">The Rebbe's position was not that healing should be avoided — it was that a structure should be built so that it could be pursued without spiritual compromise.</p>
+        <p class="rebbe-right-note">Tikkun HaNefesh Foundation applies this principle to the full spectrum of alternative healing — not only meditation, but every modality that carries therapeutic benefit alongside spiritual risk.</p>
+      </div>
+    </div>
+
+    <div class="wisdom-close">
+      <p>These are not separate opinions. They are <strong>one tradition</strong>, speaking across time — affirming that healing and faith are not in conflict, and that the Jewish community deserves a path that honors both.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HALACHIC VETTING STANDARD -->
+<section class="section-ink py-lg">
+  <div class="container">
+    <span class="eyebrow eyebrow-gold">Our Halachic Vetting Standard</span>
+    <h2 class="display-md" style="color:var(--white);margin-bottom:0.75rem;">WHAT WE ACTUALLY CHECK FOR.</h2>
+    <p style="font-size:0.9375rem;color:rgba(255,255,255,0.45);max-width:560px;line-height:1.8;margin-bottom:2.5rem;">Every practitioner, facilitator, and healer in our network is evaluated against three specific principles of Jewish law, grounded in a 1979 address by the Lubavitcher Rebbe, Rabbi Menachem M. Schneerson.</p>
+    <div class="prin-list">
+      <div class="prin-item">
+        <div class="prin-label">
+          <p class="prin-hebrew">Hashem Echad</p>
+          <p class="prin-english">G-d is One</p>
+        </div>
+        <div class="prin-body">
+          <p class="prin-text">Judaism maintains absolute monotheism. All facilitation language must be monotheistically neutral. No invocation of directional forces, spirits, or independent spiritual beings of any kind — even casually or symbolically.</p>
+          <p class="prin-practical">In practice: No Four Directions, no Grandfather Spirit, no Mother Earth as an independent power. All language must reflect the singular Creator.</p>
+        </div>
+      </div>
+      <div class="prin-item">
+        <div class="prin-label">
+          <p class="prin-hebrew">K'garzen Beyad<br>Hachotzeiv</p>
+          <p class="prin-english">"Like an axe in the hand of the woodcutter"</p>
+        </div>
+        <div class="prin-body">
+          <p class="prin-text">Everything — including elements used in healing — is an instrument of the one Creator. Stones, fire, steam, water, and breath have no independent spiritual agency. They are tools, not beings.</p>
+          <p class="prin-practical">In practice: No stones that "hold spirits," fire that "teaches," or ancestors that "guide directly." Objects are instruments — not sources of independent power.</p>
+        </div>
+      </div>
+      <div class="prin-item">
+        <div class="prin-label">
+          <p class="prin-hebrew">Lo Tizkor</p>
+          <p class="prin-english">No invoking foreign deity names</p>
+        </div>
+        <div class="prin-body">
+          <p class="prin-text">Jewish law prohibits naming or invoking foreign gods, sacred beings, or personified spiritual forces — even casually or symbolically. This includes named spirits, tribal deities, and invocation songs from other traditions.</p>
+          <p class="prin-practical">In practice: Any ceremony element, song, prayer, or invocation with a named deity or sacred being from another tradition must be removed or adapted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO MAKE A REFERRAL -->
+<section class="section-cream py-lg">
+  <div class="container">
+    <span class="eyebrow">How to Make a Referral</span>
+    <div class="ref-process-grid">
+      <div class="ref-steps">
+        <div class="ref-step">
+          <div class="ref-step-num">01</div>
+          <div>
+            <p class="ref-step-title">Contact Us</p>
+            <p class="ref-step-body">Reach out to discuss the situation. No identifying information required at this stage. We'll help you assess whether a referral is appropriate.</p>
+          </div>
+        </div>
+        <div class="ref-step">
+          <div class="ref-step-num">02</div>
+          <div>
+            <p class="ref-step-title">We Advise on Fit</p>
+            <p class="ref-step-body">We advise on appropriateness and provide access to our intake assessment if suitable. You stay as involved as the participant wishes.</p>
+          </div>
+        </div>
+        <div class="ref-step">
+          <div class="ref-step-num">03</div>
+          <div>
+            <p class="ref-step-title">Clinical Review</p>
+            <p class="ref-step-body">Our clinical team reviews the assessment and follows up with the participant directly. Placement decisions are made collaboratively.</p>
+          </div>
+        </div>
+        <div class="ref-step">
+          <div class="ref-step-num">04</div>
+          <div>
+            <p class="ref-step-title">You Stay Informed</p>
+            <p class="ref-step-body">With participant consent, we keep referring providers informed throughout the full process. You made the referral. You deserve to know how it unfolds.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ref-cta-box">
+        <h3 class="ref-cta-title">READY TO DISCUSS A REFERRAL?</h3>
+        <p class="ref-cta-body">We welcome conversations with rabbis, therapists, and community leaders who want to understand our model before referring. No commitment required.</p>
+        <p class="ref-cta-body">You can also call us directly: <strong style="color:rgba(255,255,255,0.8);">(224) 216-9597</strong></p>
+        <a href="contact.html" class="btn btn-white">Contact Us &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<div class="page-view" id="page-3" style="display:none;">
+<style>
+.jon-hero { background: var(--cream); padding: 8rem 3rem 5rem; }
+.jon-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
+.who-tags { display: flex; gap: 2px; margin-bottom: 2rem; }
+.who-tag { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; background: var(--ink); color: rgba(235,222,212,0.7); padding: 0.3rem 0.875rem; }
+.standards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.07); margin-top: 2.5rem; }
+.standard-item { background: var(--ink); padding: 2rem 1.75rem; }
+.standard-num { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: rgba(255,255,255,0.05); line-height: 1; margin-bottom: 0.75rem; }
+.standard-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.standard-body { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
+/* Form area */
+.jform-wrap { max-width: 840px; margin: 0 auto; padding: 3rem; }
+.jform-header { background: #0F2447; padding: 2.5rem 3rem; }
+.jform-title { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+.jform-sub { font-family: var(--font-serif); font-size: 0.9375rem; font-style: italic; color: rgba(255,255,255,0.45); }
+.jform-intro { background: #1B2F52; padding: 1.25rem 3rem; font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.75; }
+/* Conditional medicine panel */
+.med-panel { display: none; margin-top: 0.5rem; padding: 1rem 1.25rem; background: var(--cream); border: 1px solid rgba(10,10,10,0.12); }
+.med-panel.visible { display: block; }
+</style>
+<!-- HERO -->
+<section class="jon-hero">
+  <div class="jon-hero-inner">
+    <div>
+      <div class="who-tags">
+        <span class="who-tag">Practitioners</span>
+        <span class="who-tag">Facilitators</span>
+        <span class="who-tag">Healers</span>
+      </div>
+      <h1 class="display-xl" style="color:var(--ink);">IF YOU DO<br>THIS WORK<br>WITH<br>INTEGRITY —<br>WE WANT<br>TO KNOW<br>YOU.</h1>
+    </div>
+    <div>
+      <p class="body-lg" style="color:rgba(10,10,10,0.65);font-family:var(--font-serif);font-style:italic;margin-bottom:1.5rem;">Whether you are a licensed practitioner, an experiential facilitator, or a healer working outside conventional frameworks — if you are committed to doing this work with integrity and cultural sensitivity, we want to know you.</p>
+      <p class="body-md" style="color:rgba(10,10,10,0.55);margin-bottom:2rem;">Our network is not a directory. We make active placements, and every placement reflects our name. We are looking for practitioners, facilitators, and healers who understand what that means.</p>
+      <a href="#apply" class="btn btn-dark">Apply to Join the Network &darr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">HALACHICALLY VETTED</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">CLINICAL INTEGRITY</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">TORAH ALIGNED</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">NO SPIRITUAL COMPROMISE</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">JOIN THE NETWORK</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">HEALING WITHOUT COMPROMISE</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">HALACHICALLY VETTED</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">CLINICAL INTEGRITY</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">TORAH ALIGNED</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">NO SPIRITUAL COMPROMISE</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">JOIN THE NETWORK</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">HEALING WITHOUT COMPROMISE</span><span class="ticker-item ticker-sep">/</span>
+  </div>
+</div>
+
+<!-- WHY THIS NETWORK -->
+<section class="section-black py-lg">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+      <div>
+        <span class="eyebrow eyebrow-white">Why This Network Exists</span>
+        <h2 class="display-md" style="color:var(--white);">THE COMMUNITY<br>NEEDS YOU TO<br>GET THIS RIGHT.</h2>
+      </div>
+      <div>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1rem;">Observant Jews are seeking alternative healing in growing numbers — not because they are chasing trends, but because conventional medicine and standard therapy have not been enough. Trauma that hasn't resolved. Grief that hasn't moved. Patterns that haven't broken. The need is real, it is serious, and it is growing.</p>
+
+        <!-- CLINICAL DIMENSION -->
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:0.5rem;margin-top:1.5rem;">The Clinical Dimension</p>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1rem;">Alternative healing works — when it is done well. Somatic approaches, breathwork, depth processes, and medicine work have demonstrated real therapeutic outcomes for trauma, depression, end-of-life distress, treatment-resistant conditions, and more. The evidence base is building. The clinical need is not speculative.</p>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1rem;">But the space is largely unregulated. Many practitioners operate without adequate training, no crisis protocols, no supervision, no integration frameworks. The person seeking genuine healing can be seriously harmed — not through spiritual compromise, but through clinical negligence. <strong style="color:rgba(255,255,255,0.75);">Clinical excellence is not optional in this work. It is the baseline.</strong></p>
+
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1rem;">And there is a specific failure pattern we have encountered repeatedly — even among healers who are culturally sensitive, who understand the community, who would never compromise on the spiritual dimension. They skip the screening. They skip the preparation. They take people through an experience and consider the work done. No integration. No follow-through. <strong style="color:rgba(255,255,255,0.75);">An experience without a container is not healing. It is exposure.</strong> And for many people — particularly those carrying significant trauma — it can leave them worse off than before.</p>
+
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1rem;">This is what the four-phase model exists to prevent. Intake. Preparation. Experience. Integration. Every participant moves through all four. Every healer on our list understands that the experience is one phase — not the product.</p>
+
+        <!-- SPIRITUAL DIMENSION -->
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:0.5rem;margin-top:1.5rem;">The Spiritual Dimension</p>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1rem;">And then there is the second problem — specific to this community. The alternative healing world embeds real therapeutic benefit inside spiritual containers that raise serious questions of <strong style="color:rgba(255,255,255,0.75);">Avodah Zarah</strong>. Directional spirits are invoked. Sacred beings from other traditions are named. A person seeking genuine healing absorbs something they cannot integrate within their emunah or bring to their Rav without shame.</p>
+
+        <div class="rebbe-inline">
+          <p class="rebbe-inline-text">"A situation must be established where a person who needs this treatment — for his health and peace of mind — should not be forced to look for it in places where he will be trapped in the net of idolatry."</p>
+          <p class="rebbe-inline-attr">The Lubavitcher Rebbe, Rabbi Menachem M. Schneerson · July 8, 1979</p>
+          <p class="rebbe-inline-note">Tikkun HaNefesh Foundation applies this to the full spectrum of alternative healing — not only meditation.</p>
+        </div>
+
+        <!-- CONCLUSION -->
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-top:1.25rem;">Our network is made up of practitioners, facilitators, and healers who meet both standards: the clinical rigor this work demands, and the cultural sensitivity this community requires. You don't have to choose between excellence and integrity. <strong style="color:rgba(255,255,255,0.75);">We are asking you to bring both.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PRINCIPLES -->
+<section class="section-cream py-lg">
+  <div class="container">
+    <span class="eyebrow">Our Halachic Vetting Standard</span>
+    <h2 class="display-md" style="color:var(--ink);margin-bottom:0.75rem;">THREE PRINCIPLES.<br>NON-NEGOTIABLE.</h2>
+    <p style="font-size:0.9375rem;color:rgba(10,10,10,0.55);max-width:580px;line-height:1.8;margin-bottom:2.5rem;">Every practitioner, facilitator, and healer in our network is evaluated against these three specific principles of Jewish law. You do not need to be Jewish. You need to understand and honor these boundaries.</p>
+    <div style="display:flex;flex-direction:column;gap:1px;">
+      <div class="prin-item-light">
+        <div class="prin-label-navy"><p class="prin-hebrew">Hashem Echad</p><p class="prin-english">G-d is One</p></div>
+        <div class="prin-body-light">
+          <p class="prin-text-light">Judaism maintains absolute monotheism. All spiritual language in a healing session must reflect the singular Creator — without intermediaries, directional forces, or independent spiritual beings of any kind.</p>
+          <p class="prin-practical-light">In practice: Avoid invoking the Four Directions, Grandfather Spirit, Mother Earth, or any cosmic force as an independent power. All language must remain monotheistically neutral.</p>
+        </div>
+      </div>
+      <div class="prin-item-light">
+        <div class="prin-label-navy"><p class="prin-hebrew">K'garzen Beyad<br>Hachotzeiv</p><p class="prin-english">"Like an axe in the hand of the woodcutter"</p></div>
+        <div class="prin-body-light">
+          <p class="prin-text-light">Everything — including elements used in healing — is an instrument of the one Creator. Stones, fire, steam, water, and breath have no independent spiritual agency. They are tools, not beings with their own power.</p>
+          <p class="prin-practical-light">In practice: Do not ascribe independent spiritual power to objects or natural forces. No stones that "hold spirits," fire that "teaches," or ancestors that "guide directly."</p>
+        </div>
+      </div>
+      <div class="prin-item-light">
+        <div class="prin-label-navy"><p class="prin-hebrew">Lo Tizkor</p><p class="prin-english">No invoking foreign deity names</p></div>
+        <div class="prin-body-light">
+          <p class="prin-text-light">Jewish law prohibits naming or invoking foreign gods, sacred beings, or personified spiritual forces — even casually or symbolically. This includes named spirits, tribal deities, and invocation songs from other traditions.</p>
+          <p class="prin-practical-light">In practice: Any ceremony element, song, prayer, or invocation with a named deity or sacred being from another tradition must be removed or adapted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIX STANDARDS -->
+<section class="section-ink py-lg">
+  <div class="container">
+    <span class="eyebrow eyebrow-gold">What We Look For</span>
+    <h2 class="display-md" style="color:var(--white);margin-bottom:0.75rem;">THE STANDARD<br>IS SPECIFIC.</h2>
+    <p style="font-size:0.9375rem;color:rgba(255,255,255,0.45);max-width:580px;line-height:1.8;margin-bottom:0;">Placement on our referral list is not a directory listing. We make active placements, and every placement reflects our name. We evaluate every applicant across six dimensions:</p>
+    <div class="standards-grid">
+      <div class="standard-item"><div class="standard-num">01</div><div class="standard-title">Clinical Competence</div><p class="standard-body">Demonstrated training, supervision history, crisis protocols, and informed consent practice.</p></div>
+      <div class="standard-item"><div class="standard-num">02</div><div class="standard-title">Ethical Grounding</div><p class="standard-body">Clean professional history, active peer consultation, and a practice built on transparency.</p></div>
+      <div class="standard-item"><div class="standard-num">03</div><div class="standard-title">Halachic Sensitivity</div><p class="standard-body">Genuine understanding of the three principles above and willingness to adapt practice accordingly.</p></div>
+      <div class="standard-item"><div class="standard-num">04</div><div class="standard-title">Cultural Humility</div><p class="standard-body">Experience with religious or traditionally observant communities. Sensitivity to gender preferences and community dynamics.</p></div>
+      <div class="standard-item"><div class="standard-num">05</div><div class="standard-title">Mission Alignment</div><p class="standard-body">Belief in the integration-first model and willingness to work within our four-phase container.</p></div>
+      <div class="standard-item"><div class="standard-num">06</div><div class="standard-title">Ongoing Accountability</div><p class="standard-body">Active status requires notifying us of any complaints or concerns. The relationship is ongoing, not passive.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="section-grey py-lg" id="apply">
+  <div class="container">
+    <span class="eyebrow">The Application</span>
+    <h2 class="display-md" style="color:var(--ink);margin-bottom:0.75rem;">APPLY TO JOIN<br>OUR NETWORK.</h2>
+    <p style="font-size:0.9375rem;color:rgba(10,10,10,0.55);max-width:580px;line-height:1.8;margin-bottom:3rem;">The application covers five sections: your credentials, safety standards, halachic framework understanding, mission alignment, and formal acknowledgments. We review every application and follow up directly. All applicants are contacted by email at <strong>join@tikkunhanefesh.org</strong>.</p>
+  </div>
+
+  <div class="jform-header">
+    <div class="jform-title">TIKKUN HANEFESH FOUNDATION</div>
+    <div class="jform-sub">Practitioner Referral List Application &nbsp;·&nbsp; Confidential</div>
+  </div>
+  <div class="jform-intro">
+    Thank you for your interest in joining the Tikkun HaNefesh Foundation Practitioner Referral List. We are seeking <strong>practitioners, facilitators, and healers</strong> who demonstrate clinical competence, ethical practice, and genuine sensitivity to the halachic framework of the communities we serve. Fields marked <strong style="color:#E8C252;">*</strong> are required.
+  </div>
+
+  <div class="jform-wrap">
+    <p style="font-size:0.8rem;color:rgba(10,10,10,0.4);margin-bottom:1.5rem;">Fields marked <span style="color:var(--red);font-weight:700;">*</span> are required.</p>
+
+    <!-- Progress -->
+    <div class="form-progress">
+      <div class="form-step"><div class="form-step-num">01</div><div class="form-step-label">Credentials</div></div>
+      <div class="form-step"><div class="form-step-num">02</div><div class="form-step-label">Safety</div></div>
+      <div class="form-step"><div class="form-step-num">03</div><div class="form-step-label">Halachic</div></div>
+      <div class="form-step"><div class="form-step-num">04</div><div class="form-step-label">Alignment</div></div>
+      <div class="form-step"><div class="form-step-num">05</div><div class="form-step-label">Agreement</div></div>
+    </div>
+
+    <!-- Section 01 -->
+    <div class="form-section">
+      <div class="form-section-head">
+        <div class="form-section-num">01</div>
+        <div class="form-section-title">Basic Information &amp; Credentials<span class="form-section-sub">Tell us about yourself and your practice</span></div>
+      </div>
+      <div class="form-section-body">
+        <div class="form-grid-2">
+          <div class="form-field"><label class="form-label">Full Legal Name <span class="req">*</span></label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">Preferred Name / Title</label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">Email Address <span class="req">*</span></label><input class="form-input" type="email"/></div>
+          <div class="form-field"><label class="form-label">Phone Number <span class="req">*</span></label><input class="form-input" type="tel"/></div>
+          <div class="form-field"><label class="form-label">City <span class="req">*</span></label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">State / Country <span class="req">*</span></label><input class="form-input" type="text"/></div>
+        </div>
+        <div class="form-field"><label class="form-label">Website or Professional Profile</label><input class="form-input" type="url" placeholder="https://"/></div>
+        <hr class="form-divider"/>
+        <div class="form-field">
+          <label class="form-label">Primary Modality / Specialization <span class="req">*</span> <span class="form-hint" style="display:inline;font-style:normal;font-weight:400;text-transform:none;letter-spacing:0;">&nbsp;— select all that apply</span></label>
+          <div class="check-col">
+            <label class="check-item"><input type="checkbox"/> Somatic Therapy</label>
+            <label class="check-item"><input type="checkbox"/> Breathwork</label>
+            <label class="check-item"><input type="checkbox"/> Spiritual Counseling</label>
+            <label class="check-item"><input type="checkbox"/> EMDR</label>
+            <label class="check-item"><input type="checkbox"/> Expressive Arts / Healing Through the Arts</label>
+            <label class="check-item"><input type="checkbox"/> Trauma-Informed Integration Work</label>
+            <label class="check-item"><input type="checkbox" id="med-check" onchange="document.getElementById('med-panel').classList.toggle('visible',this.checked)"/> Medicine Work (psychedelic or plant medicine facilitation)</label>
+            <label class="check-item"><input type="checkbox" id="other-mod" onchange="document.getElementById('other-mod-panel').classList.toggle('visible',this.checked)"/> Other</label>
+          </div>
+        </div>
+        <div class="med-panel" id="med-panel">
+          <label class="form-label" style="margin-bottom:0.5rem;display:block;">Which medicine(s)? <span class="req">*</span></label>
+          <div class="check-col">
+            <label class="check-item"><input type="checkbox"/> Psilocybin</label>
+            <label class="check-item"><input type="checkbox"/> Ayahuasca</label>
+            <label class="check-item"><input type="checkbox"/> MDMA</label>
+            <label class="check-item"><input type="checkbox"/> Ketamine</label>
+            <label class="check-item"><input type="checkbox"/> Cannabis</label>
+            <label class="check-item"><input type="checkbox"/> Iboga / Ibogaine</label>
+            <label class="check-item"><input type="checkbox"/> Bufo / 5-MeO-DMT</label>
+            <label class="check-item"><input type="checkbox" id="other-med" onchange="document.getElementById('other-med-field').style.display=this.checked?'flex':'none'"/> Other</label>
+          </div>
+          <div class="form-field" id="other-med-field" style="display:none;margin-top:0.5rem;"><label class="form-label">Please specify:</label><input class="form-input" type="text"/></div>
+        </div>
+        <div class="form-field" id="other-mod-panel" style="display:none;margin-top:0.5rem;">
+          <label class="form-label">Please describe: <span class="req">*</span></label><input class="form-input" type="text"/>
+        </div>
+        <hr class="form-divider"/>
+        <div class="form-grid-2">
+          <div class="form-field"><label class="form-label">Years in Active Practice <span class="req">*</span></label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">Average Sessions Per Week</label><input class="form-input" type="text"/></div>
+        </div>
+        <div class="form-field"><label class="form-label">Relevant Training &amp; Certifications <span class="req">*</span></label><p class="form-hint">Programs, certifying bodies, and year of completion</p><textarea class="form-textarea" rows="4"></textarea></div>
+        <div class="form-grid-3">
+          <div class="form-field"><label class="form-label">License Type</label><input class="form-input" type="text" placeholder="e.g., LMHC"/></div>
+          <div class="form-field"><label class="form-label">License Number</label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">State Issued</label><input class="form-input" type="text"/></div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Do you carry professional liability insurance? <span class="req">*</span></label>
+          <div class="check-group">
+            <label class="check-item"><input type="radio" name="insurance"/> Yes</label>
+            <label class="check-item"><input type="radio" name="insurance"/> No</label>
+            <label class="check-item"><input type="radio" name="insurance"/> In process</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 02 -->
+    <div class="form-section">
+      <div class="form-section-head">
+        <div class="form-section-num">02</div>
+        <div class="form-section-title">Practice Standards &amp; Safety<span class="form-section-sub">Your clinical judgment and ethical protocols</span></div>
+      </div>
+      <div class="form-section-body">
+        <div class="form-field"><label class="form-label">How do you assess whether a prospective client is an appropriate fit? <span class="req">*</span></label><p class="form-hint">Include how you screen for contraindications, readiness, and clinical appropriateness.</p><textarea class="form-textarea" rows="5"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">How do you handle a client who destabilizes during or after a session? <span class="req">*</span></label><p class="form-hint">Describe your crisis protocol, safety planning, and coordination with other providers.</p><textarea class="form-textarea" rows="5"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field">
+          <label class="form-label">Do you receive clinical supervision or peer consultation? <span class="req">*</span></label>
+          <div class="check-col">
+            <label class="check-item"><input type="checkbox"/> Yes — ongoing supervision</label>
+            <label class="check-item"><input type="checkbox"/> Yes — peer consultation group</label>
+            <label class="check-item"><input type="checkbox"/> Occasionally</label>
+            <label class="check-item"><input type="checkbox"/> No</label>
+          </div>
+        </div>
+        <div class="form-field"><label class="form-label">If yes, please describe:</label><textarea class="form-textarea" rows="3"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field">
+          <label class="form-label">Have you ever had a formal complaint or disciplinary action filed against you? <span class="req">*</span></label>
+          <div class="check-group">
+            <label class="check-item"><input type="radio" name="complaint"/> No</label>
+            <label class="check-item"><input type="radio" name="complaint" onchange="document.getElementById('complaint-detail').style.display='block'"/> Yes — please describe below</label>
+          </div>
+        </div>
+        <div class="form-field" id="complaint-detail" style="display:none;"><label class="form-label">Describe the complaint and its resolution:</label><textarea class="form-textarea" rows="3"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">How do you approach informed consent with clients? <span class="req">*</span></label><textarea class="form-textarea" rows="4"></textarea></div>
+      </div>
+    </div>
+
+    <!-- Section 03 — Halachic -->
+    <div class="form-section">
+      <div class="form-section-head">
+        <div class="form-section-num">03</div>
+        <div class="form-section-title">Jewish Cultural Competency &amp; Halachic Sensitivity<span class="form-section-sub">Understanding the spiritual framework of our community</span></div>
+      </div>
+      <div class="form-section-body">
+        <p style="font-size:0.875rem;color:rgba(10,10,10,0.6);line-height:1.8;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(10,10,10,0.08);">Tikkun HaNefesh serves a predominantly observant Jewish population. Before answering the questions below, please read the three foundational principles that guide our halachic vetting standard. Every practitioner on our list is evaluated against these.</p>
+        <!-- Inline principle cards -->
+        <div style="display:flex;flex-direction:column;gap:1px;margin-bottom:1.75rem;border:1px solid rgba(10,10,10,0.1);">
+          <div class="prin-item-light" style="border:none;border-bottom:1px solid rgba(10,10,10,0.1);">
+            <div class="prin-label-navy"><p class="prin-hebrew">Hashem Echad</p><p class="prin-english">G-d is One</p></div>
+            <div class="prin-body-light"><p class="prin-text-light">All spiritual language in a healing session must reflect the singular Creator — without intermediaries, directional forces, or independent spiritual beings.</p><p class="prin-practical-light">No Four Directions, no Grandfather Spirit, no Mother Earth as an independent power.</p></div>
+          </div>
+          <div class="prin-item-light" style="border:none;border-bottom:1px solid rgba(10,10,10,0.1);">
+            <div class="prin-label-navy"><p class="prin-hebrew">K'garzen Beyad<br>Hachotzeiv</p><p class="prin-english">"Like an axe in the woodcutter's hand"</p></div>
+            <div class="prin-body-light"><p class="prin-text-light">Stones, fire, steam, water, and breath have no independent spiritual agency. They are tools, not beings with their own power.</p><p class="prin-practical-light">No stones that "hold spirits," fire that "teaches," or ancestors that "guide directly."</p></div>
+          </div>
+          <div class="prin-item-light" style="border:none;">
+            <div class="prin-label-navy"><p class="prin-hebrew">Lo Tizkor</p><p class="prin-english">No invoking foreign deity names</p></div>
+            <div class="prin-body-light"><p class="prin-text-light">Jewish law prohibits naming or invoking foreign gods, sacred beings, or personified spiritual forces — even casually or symbolically.</p><p class="prin-practical-light">Any ceremony element with a named deity from another tradition must be removed or adapted.</p></div>
+          </div>
+        </div>
+        <div class="form-field"><label class="form-label">Describe your experience working with observant or traditionally practicing Jewish clients. <span class="req">*</span></label><p class="form-hint">If limited, describe experience with other religious or culturally traditional communities.</p><textarea class="form-textarea" rows="5"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">How do you accommodate gender-related preferences in your practice? <span class="req">*</span></label><p class="form-hint">Some clients may only work with a same-gender practitioner or require gender-separated settings.</p><textarea class="form-textarea" rows="4"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Are there spiritual practices or invocations you routinely incorporate that clients should know about? <span class="req">*</span></label><p class="form-hint">e.g., visualizations, breathwork from specific traditions, opening/closing prayers, ceremony elements</p><textarea class="form-textarea" rows="4"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Have you worked with a client whose religious worldview required significant adaptation in your practice? <span class="req">*</span></label><textarea class="form-textarea" rows="4"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field">
+          <label class="form-label">Which of the following are you familiar with? (Select all that apply)</label>
+          <div class="check-col" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="checkbox"/> Basic Jewish calendar — Shabbat, Yom Tov restrictions and how they affect scheduling</label>
+            <label class="check-item"><input type="checkbox"/> Tzniut (modesty) — considerations in somatic or bodywork contexts</label>
+            <label class="check-item"><input type="checkbox"/> Concept of Tikkun (repair) in Jewish spiritual thought</label>
+            <label class="check-item"><input type="checkbox"/> Halacha as a framework governing daily life, not merely ritual</label>
+            <label class="check-item"><input type="checkbox"/> Jewish communal attitudes toward mental health and help-seeking</label>
+            <label class="check-item"><input type="checkbox"/> Trauma dynamics specific to Orthodox or Chassidic communities</label>
+            <label class="check-item"><input type="checkbox"/> The halachic concept of Avodah Zarah and its relevance to alternative healing</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 04 -->
+    <div class="form-section">
+      <div class="form-section-head">
+        <div class="form-section-num">04</div>
+        <div class="form-section-title">Alignment with Tikkun HaNefesh's Model<span class="form-section-sub">Your orientation toward integration-first, whole-person healing</span></div>
+      </div>
+      <div class="form-section-body">
+        <p style="font-size:0.875rem;color:rgba(10,10,10,0.6);line-height:1.8;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(10,10,10,0.08);">Tikkun HaNefesh operates on an integration-first philosophy. Healing is not merely symptom management — it is a process of holistic self-exploration rooted in safety, responsibility, and wisdom. We serve as a discernment and placement bridge. Practitioners on our list must share this orientation.</p>
+        <div class="form-field"><label class="form-label">Why do you want to be part of the Tikkun HaNefesh referral network? <span class="req">*</span></label><textarea class="form-textarea" rows="4"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">How does your approach align with an integration-first, whole-person healing model? <span class="req">*</span></label><textarea class="form-textarea" rows="4"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Are there populations or presenting concerns you do not work with?</label><p class="form-hint">e.g., active suicidality, psychosis, substance dependence, minors</p><textarea class="form-textarea" rows="3"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field">
+          <label class="form-label">Are you able to work at reduced fee when Tikkun HaNefesh provides partial financial support? <span class="req">*</span></label>
+          <div class="check-group">
+            <label class="check-item"><input type="radio" name="sliding"/> Yes</label>
+            <label class="check-item"><input type="radio" name="sliding"/> Possibly — depends on circumstances</label>
+            <label class="check-item"><input type="radio" name="sliding"/> No</label>
+          </div>
+        </div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Professional References <span class="req">*</span></label><p class="form-hint">One or two references — name, role, and contact information</p><textarea class="form-textarea" rows="4"></textarea></div>
+      </div>
+    </div>
+
+    <!-- Section 05 -->
+    <div class="form-section">
+      <div class="form-section-head">
+        <div class="form-section-num">05</div>
+        <div class="form-section-title">Acknowledgments &amp; Agreement<span class="form-section-sub">Please read and confirm each item. All required to submit.</span></div>
+      </div>
+      <div class="form-section-body">
+        <p style="font-size:0.875rem;color:rgba(10,10,10,0.6);margin-bottom:1.25rem;">By submitting this application, I acknowledge and agree to each of the following.</p>
+        <div class="ack-list">
+          <label class="ack-item"><input type="checkbox"/><span>I will maintain clear and complete informed consent processes with all clients referred through Tikkun HaNefesh Foundation, including transparent communication about my methods and any elements of my practice that clients should be aware of before beginning.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I understand and agree to uphold the three halachic principles outlined in Section 3 — Hashem Echad, K'garzen Beyad Hachotzeiv, and Lo Tizkor — in any work I conduct with referred clients. I will keep all facilitation language monotheistically neutral.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>If I am uncertain whether a specific phrase, song, ritual element, or ceremony component meets halachic standards, I will review it with Tikkun HaNefesh leadership before using it with referred clients.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I will not proselytize, introduce non-Jewish spiritual frameworks, or seek to influence a client's religious identity or level of observance — directly or indirectly — without explicit client request.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I will promptly notify Tikkun HaNefesh Foundation of any complaint, grievance, licensing action, or significant concern that arises in my practice, whether or not it directly involves a referred client.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I understand that placement on the referral list is at the sole discretion of Tikkun HaNefesh Foundation and may be revisited at any time. Active status does not constitute employment or a formal contractual relationship.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I understand that this application is confidential and will only be reviewed by Tikkun HaNefesh Foundation leadership. My information will not be shared outside the organization without my consent.</span></label>
+        </div>
+        <div class="form-grid-2" style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(10,10,10,0.08);">
+          <div class="form-field"><label class="form-label">Full Name (Typed Signature) <span class="req">*</span></label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">Date <span class="req">*</span></label><input class="form-input" type="text" placeholder="MM / DD / YYYY"/></div>
+        </div>
+        <div style="text-align:center;padding:2rem 0 0;">
+          <p style="font-size:0.78rem;color:rgba(10,10,10,0.38);font-style:italic;margin-bottom:1.25rem;">This application is reviewed by Tikkun HaNefesh Foundation leadership. You will be contacted at <strong>join@tikkunhanefesh.org</strong> regarding your application status.</p>
+          <a href="#" class="btn btn-dark" style="font-size:0.875rem;padding:1rem 3rem;border-radius:0;">Submit Application</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+document.getElementById('other-mod').addEventListener('change', function() {
+  document.getElementById('other-mod-panel').style.display = this.checked ? 'flex' : 'none';
+});
+</script>
+</div>
+<div class="page-view" id="page-4" style="display:none;">
+<style>
+.about-hero { background: var(--cream); padding: 8rem 3rem 5rem; }
+.about-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
+
+/* Mission section */
+.mission-inner { max-width: 800px; }
+.mission-body { font-size: 1rem; color: rgba(10,10,10,0.62); line-height: 1.85; margin-bottom: 1rem; }
+
+/* Two-dimension insert */
+.avodah-insert { margin-top: 2rem; padding: 1.75rem 2rem; border-left: 4px solid var(--gold); background: rgba(181,146,76,0.05); }
+.avodah-insert p { font-size: 0.9375rem; color: rgba(10,10,10,0.62); line-height: 1.85; margin-bottom: 0.875rem; }
+.avodah-insert p:last-child { margin-bottom: 0; color: var(--ink); font-weight: 500; }
+.avodah-insert p:first-child { font-size: 1rem; font-weight: 500; color: var(--ink); }
+
+/* What We Are Not */
+.not-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.not-list { list-style: none; margin-top: 1.5rem; }
+.not-list li { font-size: 0.9375rem; color: rgba(10,10,10,0.62); padding: 0.75rem 0; border-bottom: 1px solid rgba(10,10,10,0.08); display: flex; align-items: flex-start; gap: 0.875rem; }
+.not-list li::before { content: '×'; color: var(--red); font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+.are-statement { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; color: var(--ink); line-height: 0.95; margin-bottom: 0.5rem; }
+
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(10,10,10,0.08); }
+.team-card { background: var(--grey); padding: 2rem 1.5rem; }
+.team-photo { width: 100%; aspect-ratio: 1; margin-bottom: 1.25rem; }
+.team-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.2rem; }
+.team-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 0.875rem; }
+.team-bio { font-size: 0.875rem; color: rgba(10,10,10,0.58); line-height: 1.75; }
+
+/* Founding story */
+.founding-inner { max-width: 820px; }
+.founding-body { font-size: 1.0625rem; color: rgba(255,255,255,0.6); line-height: 1.85; margin-bottom: 1rem; }
+.founding-pull { font-family: var(--font-serif); font-size: 1.375rem; font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.65; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); margin: 2rem 0; }
+</style>
+<!-- HERO -->
+<section class="about-hero">
+  <div class="about-hero-inner">
+    <div>
+      <span class="eyebrow">Who We Are</span>
+      <h1 class="display-xl" style="color:var(--red);">A FOUNDATION<br>BUILT ON<br>THE BELIEF<br>THAT HEALING<br>MUST BE<br>COMPLETE.</h1>
+    </div>
+    <div>
+      <p class="body-lg" style="color:rgba(10,10,10,0.65);margin-bottom:1.5rem;">Tikkun HaNefesh Foundation is a Jewish healing organization built around a structured, end-to-end container for alternative healing — rooted in Torah values and held within clinical responsibility.</p>
+      <p class="body-md" style="color:rgba(10,10,10,0.5);">We are a discernment and placement bridge — connecting observant Jews seeking alternative healing to practitioners who have been rigorously vetted for both clinical competence and halachic sensitivity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section-white py-lg">
+  <div class="container">
+    <div class="mission-inner">
+      <span class="eyebrow">Our Mission</span>
+      <h2 class="display-md" style="color:var(--ink);margin-bottom:1.5rem;">TIKKUN HANEFESH —<br>REPAIR OF THE SOUL.</h2>
+      <p class="mission-body">The name says everything. Tikkun HaNefesh — repair of the soul — is not a metaphor for us. It is the operational framework for everything we do.</p>
+      <p class="mission-body">We exist because the Jewish community has been underserved in the space of alternative healing. Crisis resources exist. Therapy referrals exist. What has been missing is a structured, Torah-aligned path for the person who is not in crisis — but who knows that something deeper needs to change.</p>
+      <p class="mission-body">We are building that path. One participant at a time.</p>
+
+      <!-- TWO-DIMENSION INSERT -->
+      <div class="avodah-insert">
+        <p>The specific problem we exist to solve has two dimensions.</p>
+        <p>The first is spiritual: when observant Jews enter general alternative healing spaces, they frequently encounter practitioners who — without malicious intent — embed healing within spiritual frameworks that raise serious questions of Avodah Zarah. Directional spirits are invoked. Sacred beings from other traditions are named. Healing elements are presented as spiritually autonomous. The person seeking genuine healing absorbs something they cannot integrate within their emunah or bring to their Rav without shame.</p>
+        <p>The second is clinical: the alternative healing world is largely unregulated. Many practitioners operate without adequate training, supervision, crisis protocols, or integration frameworks. A person seeking genuine healing can be seriously harmed — not through spiritual compromise, but through clinical negligence.</p>
+        <p>Tikkun HaNefesh Foundation addresses both. We vet every practitioner for halachic sensitivity and clinical competence. We do not ask participants to choose between their faith and their safety — because we refuse to make that choice necessary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE ARE NOT -->
+<section class="section-grey py-lg">
+  <div class="container">
+    <div class="not-grid">
+      <div>
+        <span class="eyebrow">Clarity of Purpose</span>
+        <h2 class="display-md" style="color:var(--ink);">WHAT WE<br>ARE NOT.</h2>
+        <ul class="not-list">
+          <li>A drug program or clinical treatment facility</li>
+          <li>A retreat company or experience provider</li>
+          <li>A therapy practice</li>
+          <li>A directory of healers</li>
+          <li>A one-time referral service</li>
+          <li>A shortcut to healing</li>
+          <li>An endorsement of any specific modality</li>
+          <li>A replacement for rabbinic guidance</li>
+        </ul>
+      </div>
+      <div style="padding-top:3rem;">
+        <span class="eyebrow" style="color:rgba(10,10,10,0.35);">What we are</span>
+        <p class="are-statement">A STRUCTURED CONTAINER.</p>
+        <p style="font-size:0.9rem;color:rgba(10,10,10,0.45);font-style:italic;margin-bottom:2rem;">The distinction matters — because the container is the work.</p>
+        <p style="font-size:0.9375rem;color:rgba(10,10,10,0.62);line-height:1.85;margin-bottom:1rem;">We hold the intake process, the preparation, the placement, and the integration. We vet the practitioners. We maintain the relationship before, during, and after.</p>
+        <p style="font-size:0.9375rem;color:rgba(10,10,10,0.62);line-height:1.85;">If you are looking for a list of healers to browse, that is not us. If you are looking for a structure that will actually hold you through a complete healing process — that is exactly what we are.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDING STORY -->
+<section class="section-black py-lg">
+  <div class="container">
+    <div class="founding-inner">
+      <span class="eyebrow eyebrow-white">Our Founding Story</span>
+      <h2 class="display-md" style="color:var(--white);margin-bottom:2.5rem;">WHY WE<br>BUILT THIS.</h2>
+
+      <p class="founding-body">We didn't come to this work from the outside. Both of us came through it.</p>
+
+      <p class="founding-body">Moishe grew up in Crown Heights, steeped in Chabad tradition — a world with a deep sense of mission and spiritual seriousness. But his path took him through his own trials, including a battle with addiction that became the entry point into understanding healing not as a theory, but as something you have to live through. That personal reckoning led him into nearly two decades of professional work in addiction recovery and mental health — helping treatment centers across the country build ethical, effective systems. He saw what works. He saw what's missing. He understood, from the inside, what it means to build a container that actually holds people.</p>
+
+      <p class="founding-body">Aaron's journey carried a similar weight. He struggled with addiction, with anxiety and depression, with years of searching through conventional paths that didn't reach the thing that needed to be reached. He found his way through, and then dedicated himself to holding that same space for others — bringing the same seriousness, the same belief in safety as the foundation of all genuine healing, the same conviction that the inner work cannot be bypassed or rushed.</p>
+
+      <p class="founding-pull">"We both know what it means to be in a space that doesn't hold you — and what it means to finally be in one that does. That knowledge is what Tikkun HaNefesh Foundation is built on."</p>
+
+      <p class="founding-body">Between the two of us, we have spent years inside the alternative healing world — not observing it, but working within it. And what we've seen is something that needs to be named directly: there are facilitators operating in these spaces who are not equipped for the people they are serving. Not equipped clinically. Not equipped spiritually. Not equipped to understand the specific weight carried by someone from an observant Jewish background who walks into a ceremony space and encounters frameworks completely foreign to their emunah.</p>
+
+      <p class="founding-body">We've encountered facilitators like that ourselves. We've heard from community members — rabbis, therapists, families — about what happens when someone seeks healing in a space that wasn't built for them. The stories are not abstractions. They are specific, they are painful, and they are preventable.</p>
+
+      <p class="founding-body">But there is a third problem — one that exists even within religious and Jewish-adjacent healing spaces. There are healers who understand the community. Who are respectful of Torah values. Who would never invoke a foreign spirit. And who still do not screen properly, do not prepare people, do not follow through on integration. They take people through the experience and consider the work done. That is not healing. That is an event. And in many cases, an experience without preparation or integration is not just incomplete — it can cause real harm, destabilizing people who had no foundation to hold what arose.</p>
+
+      <p class="founding-body">This is precisely what the four-phase model is built to address. Intake. Preparation. Experience. Integration. Not as a framework on paper, but as a lived commitment — a structure that holds a person before, during, and after. We built it because we've seen too many people walk away from powerful experiences with nowhere to put what happened to them.</p>
+
+      <p class="founding-pull">"The difference between the people who transform and the people who don't is not the experience. It is how they came into it — and what happened after."</p>
+
+      <p class="founding-body">This is not a theory. It is an observation, made repeatedly, by two people who have spent years inside this space. Two people can enter the same experience with the same facilitator and have completely different outcomes. The one who transforms came in prepared — with intention set, nervous system steadied, inner work already begun. The one who doesn't came in cold, and walked out alone. Preparation and integration are not services added around the experience. They are the work itself.</p>
+
+      <p class="founding-body">Tikkun HaNefesh Foundation is the answer we kept wishing existed. A structured path built by people who understand both the transformative potential of this work and the real risks when it is done without rigor — spiritually, clinically, or structurally. A bridge, held by people who have walked both sides of it.</p>
+
+      <p class="founding-body" style="color:rgba(255,255,255,0.8);font-weight:500;">We built this because we've seen what's at stake. And because we believe the Jewish community deserves better than what currently exists.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="section-white py-lg">
+  <div class="container">
+    <span class="eyebrow">Leadership &amp; Advisors</span>
+    <h2 class="display-md" style="color:var(--ink);margin-bottom:3rem;">THE PEOPLE<br>BEHIND THE WORK.</h2>
+    <div class="team-grid">
+
+      <!-- Aaron -->
+      <div class="team-card">
+        <div class="team-photo placeholder" style="min-height:0;background:var(--cream-light);">
+          <span class="placeholder-label">Headshot</span>
+          <span class="placeholder-desc">Aaron Stefansky</span>
+        </div>
+        <div class="team-name">Aaron Stefansky</div>
+        <div class="team-title">Founder &amp; Executive Director</div>
+        <p class="team-bio">Aaron founded Tikkun HaNefesh Foundation on the conviction that the Jewish community deserves a complete, responsible path to alternative healing.</p>
+        <div class="placeholder" style="min-height:60px;margin-top:0.875rem;">
+          <span class="placeholder-label">Full Bio</span>
+          <span class="placeholder-desc">Bio text pending from Aaron</span>
+        </div>
+      </div>
+
+      <!-- Moishe -->
+      <div class="team-card">
+        <div class="team-photo placeholder" style="min-height:0;background:var(--cream-light);">
+          <span class="placeholder-label">Headshot</span>
+          <span class="placeholder-desc">Moishe Goldstein</span>
+        </div>
+        <div class="team-name">Moishe Goldstein</div>
+        <div class="team-title">Co-Founder &amp; Executive Director</div>
+        <p class="team-bio">Moishe co-founded Tikkun HaNefesh Foundation alongside Aaron, sharing the conviction that this work requires both spiritual integrity and operational rigor.</p>
+        <div class="placeholder" style="min-height:60px;margin-top:0.875rem;">
+          <span class="placeholder-label">Full Bio</span>
+          <span class="placeholder-desc">Bio text pending from Moishe</span>
+        </div>
+      </div>
+
+      <!-- Rabbi Sonnenschein -->
+      <div class="team-card">
+        <div class="team-photo placeholder" style="min-height:0;background:var(--cream-light);">
+          <span class="placeholder-label">Headshot</span>
+          <span class="placeholder-desc">Rabbi Sonnenschein</span>
+        </div>
+        <div class="team-name">Rabbi Yosef Sonnenschein</div>
+        <div class="team-title">Rabbinical Advisor</div>
+        <p class="team-bio">Rabbi Sonnenschein serves as our rabbinical advisor, providing halachic guidance and ensuring every aspect of our approach is grounded in Torah values.</p>
+        <div class="placeholder" style="min-height:60px;margin-top:0.875rem;">
+          <span class="placeholder-label">Full Bio</span>
+          <span class="placeholder-desc">Bio text pending from Rabbi Sonnenschein</span>
+        </div>
+      </div>
+
+      <!-- Faith -->
+      <div class="team-card">
+        <div class="team-photo placeholder" style="min-height:0;background:var(--cream-light);">
+          <span class="placeholder-label">Headshot</span>
+          <span class="placeholder-desc">Faith Niece</span>
+        </div>
+        <div class="team-name">Faith Niece</div>
+        <div class="team-title">Clinical Advisor<br>M.A., LMHC, LMFT, CSAT, CMAT</div>
+        <p class="team-bio">Faith oversees our clinical framework — including screening, contraindication review, and integration support — ensuring the safety of every participant.</p>
+        <div class="placeholder" style="min-height:60px;margin-top:0.875rem;">
+          <span class="placeholder-label">Full Bio</span>
+          <span class="placeholder-desc">Bio text pending from Faith Niece</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Board placeholder -->
+    <div style="margin-top:3rem;">
+      <span class="eyebrow">Board of Directors</span>
+      <div class="placeholder" style="min-height:100px;">
+        <span class="placeholder-label">Board Members</span>
+        <span class="placeholder-desc">Board composition pending. Names, titles, and brief bios to be added here once finalized.</span>
+      </div>
+    </div>
+
+    <!-- Endorsements -->
+    <div style="margin-top:2.5rem;">
+      <span class="eyebrow">Rabbinical Endorsements</span>
+      <div class="placeholder" style="min-height:100px;">
+        <span class="placeholder-label">Endorsements</span>
+        <span class="placeholder-desc">Rabbinical letters of support and endorsements to be displayed here. Pending collection.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-red py-lg" style="text-align:center;">
+  <div class="container">
+    <span class="eyebrow" style="color:rgba(10,10,10,0.45);">Get Involved</span>
+    <h2 class="display-md" style="color:var(--ink);margin-bottom:1.25rem;">BELIEVE IN THIS WORK?</h2>
+    <p style="font-size:1rem;color:rgba(10,10,10,0.65);max-width:500px;margin:0 auto 2rem;">Support the mission, make a referral, join the network — or simply reach out. There are many ways to be part of this.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="support.html" class="btn btn-dark">Support Our Work</a>
+      <a href="contact.html" class="btn btn-dark" style="background:transparent;border:1px solid rgba(10,10,10,0.3);">Contact Us</a>
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.72rem;color:rgba(10,10,10,0.4);font-style:italic;">501(c)(3) status pending. Donations accepted. Full tax-deductibility upon approval.</p>
+  </div>
+</section>
+
+</div>
+<div class="page-view" id="page-5" style="display:none;">
+<style>
+.support-hero { background: var(--cream); padding: 8rem 3rem 5rem; }
+.support-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
+
+/* Budget bar */
+.budget-bar { display: flex; flex-direction: column; gap: 0.75rem; }
+.budget-row { display: flex; align-items: center; gap: 1.5rem; }
+.budget-label { font-size: 0.78rem; color: rgba(255,255,255,0.55); width: 220px; flex-shrink: 0; }
+.budget-track { flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 0; overflow: hidden; }
+.budget-fill { height: 100%; background: var(--gold); }
+.budget-pct { font-family: var(--font-display); font-size: 0.875rem; font-weight: 700; color: var(--gold); width: 3rem; text-align: right; flex-shrink: 0; }
+
+/* Donor tiers */
+.donor-tiers { display: flex; flex-direction: column; gap: 1px; }
+.donor-tier-row { display: grid; grid-template-columns: 1fr 1fr 2fr; background: var(--white); }
+.donor-tier-row:first-child .donor-tier-cell { padding-top: 0.875rem; padding-bottom: 0.875rem; background: var(--ink); }
+.donor-tier-cell { padding: 1.5rem 1.75rem; border-right: 1px solid rgba(10,10,10,0.08); }
+.donor-tier-cell:last-child { border-right: none; }
+.tier-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: -0.01em; }
+.tier-amount { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.tier-benefits { font-size: 0.875rem; color: rgba(10,10,10,0.6); line-height: 1.75; }
+.tier-header-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+/* Giving ways */
+.giving-ways { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(10,10,10,0.08); }
+.giving-card { background: var(--white); padding: 2.25rem 2rem; }
+.giving-card-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.875rem; }
+.giving-card-body { font-size: 0.9rem; color: rgba(10,10,10,0.58); line-height: 1.8; margin-bottom: 1.5rem; }
+</style>
+<!-- HERO -->
+<section class="support-hero">
+  <div class="support-hero-inner">
+    <div>
+      <span class="eyebrow">For Donors &amp; Aligned Supporters</span>
+      <h1 class="display-xl" style="color:var(--ink);">THE CONTAINER<br>COSTS<br>SOMETHING<br>TO HOLD.</h1>
+    </div>
+    <div>
+      <p class="body-lg" style="color:rgba(10,10,10,0.65);margin-bottom:1.5rem;">Everything that makes Tikkun HaNefesh Foundation different — the intake process, the preparation support, the clinical oversight, the integration follow-through — requires resources.</p>
+      <p class="body-md" style="color:rgba(10,10,10,0.55);margin-bottom:2rem;">The quality of the container is directly determined by the investment behind it.</p>
+      <a href="mailto:donate@tikkunhanefesh.org" class="btn btn-dark">Donate or Partner With Us</a>
+      <p style="margin-top:1rem;font-size:0.72rem;color:rgba(10,10,10,0.38);font-style:italic;">501(c)(3) status pending. Donations accepted. Full tax-deductibility upon approval.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">FOUNDING PARTNER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">CHAI CIRCLE</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">TIKKUN BUILDER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">COMMUNITY SUPPORTER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">FRIEND OF TIKKUN</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">SUPPORT THE MISSION</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">FOUNDING PARTNER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">CHAI CIRCLE</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">TIKKUN BUILDER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">COMMUNITY SUPPORTER</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">FRIEND OF TIKKUN</span><span class="ticker-item ticker-sep">/</span>
+    <span class="ticker-item">SUPPORT THE MISSION</span><span class="ticker-item ticker-sep">/</span>
+  </div>
+</div>
+
+<!-- THE GAP -->
+<section class="section-black py-lg">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;">
+      <div>
+        <span class="eyebrow eyebrow-white">The Gap We Are Filling</span>
+        <h2 class="display-md" style="color:var(--white);">THOUSANDS<br>ARE SEEKING.<br>NO ONE IS<br>HOLDING THEM.</h2>
+      </div>
+      <div>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1rem;">There are thousands of Jewish individuals seeking alternative healing right now — without guidance, without a safe container, without anyone to help them navigate a complex landscape of modalities, providers, and risks.</p>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:1rem;">There are hundreds of rabbis and therapists who want somewhere to refer these people — and currently have nowhere credible to send them.</p>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;">Tikkun HaNefesh Foundation exists to close that gap. Every dollar we raise goes directly toward building and maintaining the infrastructure that makes this possible: clinical oversight, rabbinical guidance, intake and integration support, and the tools that hold participants through the full process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGET BREAKDOWN -->
+<section class="section-ink py-lg">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+      <div>
+        <span class="eyebrow eyebrow-gold">How Funds Are Used</span>
+        <h2 class="display-md" style="color:var(--white);margin-bottom:0.5rem;">YEAR 1 BUDGET</h2>
+        <p style="font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--gold);letter-spacing:-0.02em;margin-bottom:2rem;">$1,000,000</p>
+        <div class="budget-bar">
+          <div class="budget-row"><span class="budget-label">Direct healing placements &amp; participant support</span><div class="budget-track"><div class="budget-fill" style="width:30%;"></div></div><span class="budget-pct">30%</span></div>
+          <div class="budget-row"><span class="budget-label">Leadership, administration &amp; infrastructure</span><div class="budget-track"><div class="budget-fill" style="width:25%;"></div></div><span class="budget-pct">25%</span></div>
+          <div class="budget-row"><span class="budget-label">Clinical oversight &amp; advisory</span><div class="budget-track"><div class="budget-fill" style="width:20%;"></div></div><span class="budget-pct">20%</span></div>
+          <div class="budget-row"><span class="budget-label">Platform, tools &amp; digital systems</span><div class="budget-track"><div class="budget-fill" style="width:15%;"></div></div><span class="budget-pct">15%</span></div>
+          <div class="budget-row"><span class="budget-label">Legal, compliance &amp; governance</span><div class="budget-track"><div class="budget-fill" style="width:10%;"></div></div><span class="budget-pct">10%</span></div>
+        </div>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-top:1.5rem;font-style:italic;">Immediate goal: $100,000. Full Year 1 target: $1,000,000.</p>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow-gold">What Your Giving Funds</span>
+        <div style="display:flex;flex-direction:column;gap:1px;margin-top:1.25rem;">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:1.25rem 1.5rem;">
+            <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);">$100</div>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.375rem;">Supports one participant through the intake and screening process</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-top:none;padding:1.25rem 1.5rem;">
+            <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);">$500</div>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.375rem;">Funds preparation support for one participant</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-top:none;padding:1.25rem 1.5rem;">
+            <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);">$2,500</div>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.375rem;">Sponsors one participant's full four-phase journey</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-top:none;padding:1.25rem 1.5rem;">
+            <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);">$10,000</div>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);margin-top:0.375rem;">Establishes a healing fund supporting multiple participants through the year</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONOR TIERS -->
+<section class="section-grey py-lg">
+  <div class="container">
+    <span class="eyebrow">Named Donor Tiers</span>
+    <h2 class="display-md" style="color:var(--ink);margin-bottom:0.75rem;">PARTNER WITH<br>THE MISSION.</h2>
+    <p style="font-size:0.9375rem;color:rgba(10,10,10,0.55);max-width:580px;line-height:1.8;margin-bottom:2.5rem;">We recognize our founding supporters with named tiers that reflect our values. Each tier carries recognition, relationship, and a seat at the table as we build.</p>
+
+    <div class="donor-tiers">
+      <!-- Header row -->
+      <div class="donor-tier-row" style="background:var(--ink);">
+        <div class="donor-tier-cell" style="background:transparent;"><span class="tier-header-label" style="color:rgba(255,255,255,0.3);">Donor Tier</span></div>
+        <div class="donor-tier-cell" style="background:transparent;"><span class="tier-header-label" style="color:rgba(255,255,255,0.3);">Gift Level</span></div>
+        <div class="donor-tier-cell" style="background:transparent;border-right:none;"><span class="tier-header-label" style="color:rgba(255,255,255,0.3);">Recognition &amp; Benefits</span></div>
+      </div>
+
+      <!-- Founding Partner -->
+      <div class="donor-tier-row">
+        <div class="donor-tier-cell"><span class="tier-name">Founding Partner</span></div>
+        <div class="donor-tier-cell">
+          <div class="placeholder" style="min-height:0;padding:0.375rem 0.75rem;display:inline-flex;align-items:center;gap:0.25rem;">
+            <span class="placeholder-label" style="font-size:0.6rem;">AMOUNT TBD</span>
+          </div>
+          <p style="font-size:0.7rem;color:rgba(10,10,10,0.35);margin-top:0.25rem;font-style:italic;">Pending confirmation from Aaron</p>
+        </div>
+        <div class="donor-tier-cell"><p class="tier-benefits">Named recognition on all organizational materials, website, and annual report. Invitation to founders' briefings. Direct relationship with executive leadership. First access to organizational updates.</p></div>
+      </div>
+
+      <!-- Chai Circle -->
+      <div class="donor-tier-row" style="background:var(--cream-light);">
+        <div class="donor-tier-cell"><span class="tier-name">Chai Circle</span></div>
+        <div class="donor-tier-cell">
+          <div class="placeholder" style="min-height:0;padding:0.375rem 0.75rem;display:inline-flex;align-items:center;">
+            <span class="placeholder-label" style="font-size:0.6rem;">$18,000+ TBD</span>
+          </div>
+          <p style="font-size:0.7rem;color:rgba(10,10,10,0.35);margin-top:0.25rem;font-style:italic;">$18K = 18 × chai · pending Aaron</p>
+        </div>
+        <div class="donor-tier-cell"><p class="tier-benefits">Named recognition on the Chai Circle wall. Invitation to annual gathering. Quarterly organizational briefing. Sponsorship of two full participant journeys per year.</p></div>
+      </div>
+
+      <!-- Tikkun Builder -->
+      <div class="donor-tier-row">
+        <div class="donor-tier-cell"><span class="tier-name">Tikkun Builder</span></div>
+        <div class="donor-tier-cell">
+          <div class="placeholder" style="min-height:0;padding:0.375rem 0.75rem;display:inline-flex;align-items:center;">
+            <span class="placeholder-label" style="font-size:0.6rem;">AMOUNT TBD</span>
+          </div>
+          <p style="font-size:0.7rem;color:rgba(10,10,10,0.35);margin-top:0.25rem;font-style:italic;">Pending confirmation from Aaron</p>
+        </div>
+        <div class="donor-tier-cell"><p class="tier-benefits">Named recognition on website and annual report. Semi-annual organizational update. Sponsorship of one full participant journey per year.</p></div>
+      </div>
+
+      <!-- Community Supporter -->
+      <div class="donor-tier-row" style="background:var(--cream-light);">
+        <div class="donor-tier-cell"><span class="tier-name">Community Supporter</span></div>
+        <div class="donor-tier-cell">
+          <div class="placeholder" style="min-height:0;padding:0.375rem 0.75rem;display:inline-flex;align-items:center;">
+            <span class="placeholder-label" style="font-size:0.6rem;">AMOUNT TBD</span>
+          </div>
+          <p style="font-size:0.7rem;color:rgba(10,10,10,0.35);margin-top:0.25rem;font-style:italic;">Pending confirmation from Aaron</p>
+        </div>
+        <div class="donor-tier-cell"><p class="tier-benefits">Annual recognition on our website. Invitation to community events. Funds intake support for multiple participants.</p></div>
+      </div>
+
+      <!-- Friend -->
+      <div class="donor-tier-row">
+        <div class="donor-tier-cell"><span class="tier-name">Friend of Tikkun HaNefesh</span></div>
+        <div class="donor-tier-cell"><span class="tier-amount">Any Amount</span></div>
+        <div class="donor-tier-cell"><p class="tier-benefits">Every gift matters. Your contribution directly supports participant care, clinical oversight, and the infrastructure of responsible healing. Thank you.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem;padding:1rem 1.5rem;background:rgba(181,146,76,0.08);border:1px solid rgba(181,146,76,0.2);">
+      <p style="font-size:0.8rem;color:rgba(10,10,10,0.5);"><strong style="color:var(--gold);">Note to team:</strong> Donor tier gift amounts are placeholders pending confirmation from Aaron. The tier names and benefits structure are confirmed. Please review and confirm dollar thresholds before publishing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAYS TO GIVE -->
+<section class="section-white py-lg">
+  <div class="container">
+    <span class="eyebrow">Ways to Give</span>
+    <h2 class="display-md" style="color:var(--ink);margin-bottom:2.5rem;">EVERY FORM<br>OF PARTNERSHIP<br>MATTERS.</h2>
+    <div class="giving-ways">
+      <div class="giving-card">
+        <div class="giving-card-title">Individual Giving</div>
+        <p class="giving-card-body">Give online at any level. Every contribution goes directly toward participant support, clinical oversight, and the operational infrastructure of responsible healing.</p>
+        <a href="mailto:donate@tikkunhanefesh.org" class="btn btn-dark btn-sm">Give Now</a>
+      </div>
+      <div class="giving-card">
+        <div class="giving-card-title">Institutional &amp; Foundation Giving</div>
+        <p class="giving-card-body">We welcome conversations with foundations and institutional donors aligned with our mission. We can provide a full organizational deck, financials, and program documentation upon request.</p>
+        <a href="mailto:donate@tikkunhanefesh.org" class="btn btn-dark btn-sm">Request Our Full Deck</a>
+      </div>
+      <div class="giving-card">
+        <div class="giving-card-title">Planned Giving &amp; Legacy</div>
+        <p class="giving-card-body">If you are interested in including Tikkun HaNefesh Foundation in your estate planning, please contact us directly. We can discuss options and provide the documentation you need.</p>
+        <a href="mailto:donate@tikkunhanefesh.org" class="btn btn-dark btn-sm">Contact Us to Discuss</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="section-red py-lg">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+      <div>
+        <span class="eyebrow" style="color:rgba(10,10,10,0.45);">Why Now</span>
+        <h2 class="display-md" style="color:var(--ink);">THE DEMAND<br>IS ALREADY<br>HERE.</h2>
+      </div>
+      <div>
+        <p style="font-size:1rem;color:rgba(10,10,10,0.65);line-height:1.85;margin-bottom:1rem;">The demand for alternative healing within the Jewish community is not coming — it is here. The question is not whether people will seek these paths. They already are.</p>
+        <p style="font-size:1rem;color:rgba(10,10,10,0.65);line-height:1.85;margin-bottom:2rem;">The question is whether there will be a responsible, Torah-aligned container waiting for them when they do. We are building that container. We need partners who believe it matters.</p>
+        <a href="mailto:donate@tikkunhanefesh.org" class="btn btn-dark">Join Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<div class="page-view" id="page-6" style="display:none;">
+<style>
+.begin-hero { background: var(--cream); padding: 8rem 3rem 5rem; }
+.begin-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
+.expect-list { list-style: none; margin-top: 1.5rem; }
+.expect-list li { font-size: 0.9rem; color: rgba(10,10,10,0.6); padding: 0.6rem 0; border-bottom: 1px solid rgba(10,10,10,0.08); display: flex; align-items: flex-start; gap: 0.75rem; }
+.expect-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+/* Intake form wrapper */
+.intake-header { background: #0F2447; padding: 2.5rem 3rem; }
+.intake-title { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+.intake-sub { font-family: var(--font-serif); font-size: 0.9375rem; font-style: italic; color: rgba(255,255,255,0.45); }
+.intake-intro { background: #1B2F52; padding: 1.25rem 3rem; font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.75; }
+.intake-form { max-width: 840px; margin: 0 auto; padding: 3rem; }
+</style>
+<!-- HERO -->
+<section class="begin-hero">
+  <div class="begin-hero-inner">
+    <div>
+      <span class="eyebrow">Participant Intake Assessment</span>
+      <h1 class="display-xl" style="color:var(--ink);">THE FIRST<br>STEP IS<br>UNDER-<br>STANDING<br>WHERE<br>YOU ARE.</h1>
+    </div>
+    <div>
+      <p class="body-lg" style="color:rgba(10,10,10,0.65);margin-bottom:1.5rem;">This assessment is the beginning of your journey with Tikkun HaNefesh Foundation. It is designed to help us understand your history, your goals, and your readiness — so we can match you to the healing pathway best suited to you.</p>
+      <p class="body-md" style="color:rgba(10,10,10,0.5);margin-bottom:0.5rem;">There are no wrong answers. The most important thing is honesty. Your responses are confidential and reviewed only by our clinical team.</p>
+      <ul class="expect-list">
+        <li>20–25 minutes to complete</li>
+        <li>Questions covering your history, intention, and spiritual context</li>
+        <li>A personality profile to deepen the match</li>
+        <li>Your results will show your top matched modalities and recommended next steps</li>
+        <li>A member of our clinical team will follow up within 2–3 business days</li>
+      </ul>
+      <p style="margin-top:1.5rem;font-size:0.875rem;color:rgba(10,10,10,0.45);">If you have questions before beginning, you are welcome to <a href="contact.html" style="color:var(--ink);text-decoration:underline;">contact us first</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTAKE FORM -->
+<section class="section-grey" style="padding:0;">
+  <div class="intake-header">
+    <div class="intake-title">TIKKUN HANEFESH FOUNDATION</div>
+    <div class="intake-sub">Healing Pathway Assessment &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; Clinical + Modality Matching</div>
+  </div>
+  <div class="intake-intro">
+    This assessment is a multi-step clinical screening and modality-matching tool. It covers your personal history, healing intention, mental health and medical background, spiritual context, and a three-system personality profile. At the end, it surfaces your top matched modalities, a full alignment chart, contraindication flags, and personalized next steps. Your responses are reviewed only by our clinical team. We follow up within <strong>2–3 business days</strong>.
+  </div>
+
+  <div style="max-width:840px;margin:0 auto;padding:4rem 3rem;">
+
+    <!-- What the screener covers -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(10,10,10,0.08);margin-bottom:3rem;">
+      <div style="background:var(--white);padding:1.75rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;">What It Covers</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Demographics &amp; intake basics</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Healing intention &amp; goals</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Mental health &amp; psychiatric history</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Medical history &amp; medications</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Substance history &amp; prior experiences</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Life context &amp; current stability</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Spiritual context &amp; Jewish identity</li>
+        </ul>
+      </div>
+      <div style="background:var(--white);padding:1.75rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;">Personality Matching (3 Systems)</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Myers-Briggs (MBTI) — 4 dimensions</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Enneagram — 9 types with educational profiles</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Big Five / OCEAN — 5 trait dimensions</li>
+        </ul>
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;margin-top:1.5rem;">What You Get</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Top 3 matched modalities</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Full alignment chart across 22 modalities</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Contraindication flags &amp; clinical notes</li>
+          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Personality insights &amp; next steps</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Screener embed area -->
+    <div style="background:var(--ink);padding:3rem;text-align:center;">
+      <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Clinical Screening Tool</p>
+      <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--white);line-height:0.95;margin-bottom:1.25rem;">HEALING PATHWAY<br>ASSESSMENT</h3>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 2rem;line-height:1.75;">20–25 minutes. Confidential. Reviewed by our clinical team within 2–3 business days.</p>
+
+      <!-- In the live site, this button links to /screening where the React component lives -->
+      <a href="https://claude.ai/chat/11ce0af0-9d6f-46a8-b579-1fed36020dc6"
+         target="_blank"
+         class="btn btn-white"
+         style="font-size:0.875rem;padding:1rem 2.5rem;border-radius:0;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">
+        Launch the Healing Assessment →
+      </a>
+
+      <p style="font-size:0.7rem;color:rgba(255,255,255,0.25);margin-top:1.5rem;font-style:italic;">
+        Developer note: Replace this link with the embedded React screener component at <code style="font-family:monospace;color:rgba(255,255,255,0.4);">/screening</code> — see <em>psychedelic-intake-screener.jsx</em>
+      </p>
+    </div>
+
+    <p style="font-size:0.8rem;color:rgba(10,10,10,0.38);text-align:center;margin-top:1.5rem;">Your information is confidential and reviewed only by our clinical team.<br>If you have questions before beginning, <a href="#" onclick="showPage(7);return false;" style="color:var(--ink);text-decoration:underline;">contact us first</a>.</p>
+  </div>
+</section>
+
+</div>
+<div class="page-view" id="page-7" style="display:none;">
+<style>
+.contact-hero { background: var(--cream); padding: 8rem 3rem 5rem; }
+.contact-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+.contact-info-list { list-style: none; margin-top: 2rem; }
+.contact-info-item { display: flex; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(10,10,10,0.1); align-items: flex-start; }
+.contact-info-item:first-child { border-top: 1px solid rgba(10,10,10,0.1); }
+.contact-info-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; opacity: 0.4; }
+.contact-info-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(10,10,10,0.4); margin-bottom: 0.25rem; }
+.contact-info-val { font-size: 0.9375rem; color: var(--ink); }
+.contact-form-card { background: var(--white); border: 1px solid rgba(10,10,10,0.1); padding: 2.5rem; }
+.routing-map { background: var(--grey); padding: 3rem; }
+.routing-map-inner { max-width: 1200px; margin: 0 auto; }
+.routing-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(10,10,10,0.08); margin-top: 2rem; }
+.routing-item { background: var(--white); padding: 1.5rem 1.25rem; }
+.routing-reason { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
+.routing-email { font-size: 0.72rem; color: var(--gold); word-break: break-word; }
+</style>
+<!-- HERO + FORM -->
+<section class="contact-hero">
+  <div class="contact-hero-inner">
+    <!-- Left: contact info -->
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h1 class="display-xl" style="color:var(--ink);">GET IN<br>TOUCH.</h1>
+      <p class="body-lg" style="color:rgba(10,10,10,0.65);margin-top:1.5rem;max-width:400px;">Whether you're seeking healing, making a referral, supporting the mission, or looking to join our network — reach out and we'll connect you with the right person.</p>
+      <ul class="contact-info-list">
+        <li class="contact-info-item">
+          <svg class="contact-info-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.1 3.3a1 1 0 01-.23 1.02L7.91 9.23a10 10 0 004.86 4.86l1.23-1.23a1 1 0 011.02-.23l3.3 1.1a1 1 0 01.68.95V17a2 2 0 01-2 2A14 14 0 013 5z"/></svg>
+          <div>
+            <div class="contact-info-label">Phone</div>
+            <div class="contact-info-val">(224) 216-9597</div>
+          </div>
+        </li>
+        <li class="contact-info-item">
+          <svg class="contact-info-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/><polyline points="2,5 10,11 18,5"/></svg>
+          <div>
+            <div class="contact-info-label">General Email</div>
+            <div class="contact-info-val">info@tikkunhanefesh.org</div>
+          </div>
+        </li>
+        <li class="contact-info-item">
+          <svg class="contact-info-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2a6 6 0 016 6c0 4-6 10-6 10S4 12 4 8a6 6 0 016-6z"/><circle cx="10" cy="8" r="2"/></svg>
+          <div>
+            <div class="contact-info-label">Location</div>
+            <div class="contact-info-val">8819 Dickens Avenue<br>Surfside, Florida</div>
+          </div>
+        </li>
+        <li class="contact-info-item">
+          <svg class="contact-info-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><polyline points="10,6 10,10 13,12"/></svg>
+          <div>
+            <div class="contact-info-label">Response Time</div>
+            <div class="contact-info-val">Within 2–3 business days</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right: form -->
+    <div class="contact-form-card">
+      <h2 style="font-family:var(--font-display);font-size:1.75rem;font-weight:700;color:var(--ink);margin-bottom:0.375rem;">Send Us a Message</h2>
+      <p style="font-size:0.875rem;color:rgba(10,10,10,0.5);margin-bottom:2rem;">We'll route your message to the right team member and be in touch shortly.</p>
+
+      <div class="form-grid-2">
+        <div class="form-field"><label class="form-label">First Name <span class="req">*</span></label><input class="form-input" type="text"/></div>
+        <div class="form-field"><label class="form-label">Last Name <span class="req">*</span></label><input class="form-input" type="text"/></div>
+        <div class="form-field"><label class="form-label">Email <span class="req">*</span></label><input class="form-input" type="email"/></div>
+        <div class="form-field"><label class="form-label">Phone</label><input class="form-input" type="tel"/></div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">How Can We Help? <span class="req">*</span></label>
+        <select class="form-select" onchange="updateRouting(this.value)">
+          <option value="">Select one…</option>
+          <option value="intake">I'm seeking healing or support for myself</option>
+          <option value="referral">I'm a rabbi or community professional making a referral</option>
+          <option value="donate">I want to support the mission or discuss a donation</option>
+          <option value="join">I'm a practitioner or facilitator looking to join the network</option>
+          <option value="general">General inquiry</option>
+        </select>
+        <div id="routing-note" style="display:none;margin-top:0.5rem;font-size:0.72rem;color:rgba(10,10,10,0.4);font-style:italic;"></div>
+      </div>
+      <div class="form-field"><label class="form-label">Message</label><textarea class="form-textarea" rows="5" placeholder="Share as much or as little as you'd like."></textarea></div>
+      <a href="#" class="btn btn-dark" style="width:100%;justify-content:center;border-radius:0;padding:1rem;">Send Message</a>
+      <p style="font-size:0.72rem;color:rgba(10,10,10,0.35);text-align:center;margin-top:0.875rem;">Messages are routed to the right team member based on your selection above.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL ROUTING MAP -->
+<div class="routing-map">
+  <div class="routing-map-inner">
+    <span class="eyebrow">How Messages Are Routed</span>
+    <p style="font-size:0.875rem;color:rgba(10,10,10,0.55);margin-top:0.375rem;margin-bottom:0;">Every message goes to the right person. Here's how:</p>
+    <div class="routing-grid">
+      <div class="routing-item">
+        <div class="routing-reason">Healing Inquiries</div>
+        <div class="routing-email">intake@tikkunhanefesh.org</div>
+      </div>
+      <div class="routing-item">
+        <div class="routing-reason">Referrals</div>
+        <div class="routing-email">intake@tikkunhanefesh.org</div>
+      </div>
+      <div class="routing-item">
+        <div class="routing-reason">Donations &amp; Giving</div>
+        <div class="routing-email">donate@tikkunhanefesh.org</div>
+      </div>
+      <div class="routing-item">
+        <div class="routing-reason">Joining the Network</div>
+        <div class="routing-email">join@tikkunhanefesh.org</div>
+      </div>
+      <div class="routing-item">
+        <div class="routing-reason">General Inquiries</div>
+        <div class="routing-email">info@tikkunhanefesh.org</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const routingMap = {
+  intake:  'Your message will be sent to → intake@tikkunhanefesh.org',
+  referral:'Your message will be sent to → intake@tikkunhanefesh.org',
+  donate:  'Your message will be sent to → donate@tikkunhanefesh.org',
+  join:    'Your message will be sent to → join@tikkunhanefesh.org',
+  general: 'Your message will be sent to → info@tikkunhanefesh.org',
+};
+function updateRouting(val) {
+  const el = document.getElementById('routing-note');
+  if (val && routingMap[val]) {
+    el.textContent = routingMap[val];
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+</script>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col footer-col-brand"><span class="footer-col-label">Organization</span><div class="brand-name">Tikkun HaNefesh Foundation</div><p>The Bridge to Safe Alternative Healing<br>for the Jewish Community</p><p style="margin-top:0.75rem;color:rgba(255,255,255,0.25);font-size:0.75rem;">501(c)(3) status pending. Donations accepted.<br>Full tax-deductibility upon approval.</p></div>
+    <div class="footer-col"><span class="footer-col-label">Navigate</span><a href="#" onclick="showPage(1);return false;">Our Approach</a><a href="#" onclick="showPage(2);return false;">For Referrers</a><a href="#" onclick="showPage(3);return false;">Join Our Network</a><a href="#" onclick="showPage(4);return false;">About</a><a href="#" onclick="showPage(5);return false;">Support Our Work</a><a href="#" onclick="showPage(6);return false;">Begin Your Journey</a><a href="#" onclick="showPage(7);return false;">Contact</a></div>
+    <div class="footer-col"><span class="footer-col-label">Contact</span><p>(224) 216-9597</p><p>info@tikkunhanefesh.org</p><p style="margin-top:0.5rem;">8819 Dickens Avenue<br>Surfside, Florida</p></div>
+    <div class="footer-col"><span class="footer-col-label">Leadership</span><p>Aaron Stefansky<br><span style="font-size:0.72rem;color:rgba(255,255,255,0.25);">Founder &amp; Executive Director</span></p><p style="margin-top:0.5rem;">Moishe Goldstein<br><span style="font-size:0.72rem;color:rgba(255,255,255,0.25);">Co-Founder &amp; Executive Director</span></p></div>
+  </div>
+  <div class="footer-bottom"><span>&#169; 2026 Tikkun HaNefesh Foundation. All rights reserved.</span><span>Surfside, Florida</span></div>
+</footer>
+<script>
+function showPage(idx) {
+  document.querySelectorAll('.page-view').forEach(function(el){ el.style.display='none'; });
+  document.querySelectorAll('.sw-btn').forEach(function(el){ el.classList.remove('sw-active'); });
+  var page = document.getElementById('page-'+idx);
+  if(page) page.style.display='block';
+  var btns = document.querySelectorAll('.sw-btn');
+  if(btns[idx]) btns[idx].classList.add('sw-active');
+  window.scrollTo(0,0);
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var linkMap = {'index.html':0,'our-approach.html':1,'for-referrers.html':2,'join-our-network.html':3,'about.html':4,'support.html':5,'begin.html':6,'contact.html':7};
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var href = a.getAttribute('href');
+    if(href && linkMap[href] !== undefined){
+      (function(idx){ a.setAttribute('href','#'); a.addEventListener('click', function(e){ e.preventDefault(); showPage(idx); }); })(linkMap[href]);
+    }
+  });
+});
+</script>
+</body>
+</html>
