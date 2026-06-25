@@ -2227,73 +2227,188 @@ document.getElementById('other-mod').addEventListener('change', function() {
   </div>
 </section>
 
-<!-- INTAKE FORM -->
 <section class="section-grey" style="padding:0;">
   <div class="intake-header">
     <div class="intake-title">TIKKUN HANEFESH FOUNDATION</div>
-    <div class="intake-sub">Healing Pathway Assessment &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; Clinical + Modality Matching</div>
+    <div class="intake-sub">Participant Intake Assessment · Confidential</div>
   </div>
-  <div class="intake-intro">
-    This assessment is a multi-step clinical screening and modality-matching tool. It covers your personal history, healing intention, mental health and medical background, spiritual context, and a three-system personality profile. At the end, it surfaces your top matched modalities, a full alignment chart, contraindication flags, and personalized next steps. Your responses are reviewed only by our clinical team. We follow up within <strong>2–3 business days</strong>.
-  </div>
-
-  <div style="max-width:840px;margin:0 auto;padding:4rem 3rem;">
-
-    <!-- What the screener covers -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(10,10,10,0.08);margin-bottom:3rem;">
-      <div style="background:var(--white);padding:1.75rem;">
-        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;">What It Covers</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Demographics &amp; intake basics</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Healing intention &amp; goals</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Mental health &amp; psychiatric history</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Medical history &amp; medications</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Substance history &amp; prior experiences</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Life context &amp; current stability</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Spiritual context &amp; Jewish identity</li>
-        </ul>
-      </div>
-      <div style="background:var(--white);padding:1.75rem;">
-        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;">Personality Matching (3 Systems)</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Myers-Briggs (MBTI) — 4 dimensions</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Enneagram — 9 types with educational profiles</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Big Five / OCEAN — 5 trait dimensions</li>
-        </ul>
-        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;margin-top:1.5rem;">What You Get</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Top 3 matched modalities</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Full alignment chart across 22 modalities</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Contraindication flags &amp; clinical notes</li>
-          <li style="font-size:0.875rem;color:rgba(10,10,10,0.65);display:flex;gap:0.75rem;"><span style="color:var(--gold);">→</span> Personality insights &amp; next steps</li>
-        </ul>
+  <div class="intake-intro">This assessment is reviewed by our clinical team. All information is confidential. We will follow up within <strong>2–3 business days</strong> to discuss your responses and next steps.</div>
+  <div class="intake-form">
+    <div class="form-progress">
+      <div class="form-step"><div class="form-step-num">01</div><div class="form-step-label">About You</div></div>
+      <div class="form-step"><div class="form-step-num">02</div><div class="form-step-label">Intention</div></div>
+      <div class="form-step"><div class="form-step-num">03</div><div class="form-step-label">History</div></div>
+      <div class="form-step"><div class="form-step-num">04</div><div class="form-step-label">Spiritual</div></div>
+      <div class="form-step"><div class="form-step-num">05</div><div class="form-step-label">Lifestyle</div></div>
+      <div class="form-step"><div class="form-step-num">06</div><div class="form-step-label">Consent</div></div>
+    </div>
+    <div class="form-section">
+      <div class="form-section-head"><div class="form-section-num">01</div><div class="form-section-title">About You<span class="form-section-sub">Basic personal information</span></div></div>
+      <div class="form-section-body">
+        <div class="form-grid-2">
+          <div class="form-field"><label class="form-label">First Name <span class="req">*</span></label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">Last Name <span class="req">*</span></label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">Email Address <span class="req">*</span></label><input class="form-input" type="email"/></div>
+          <div class="form-field"><label class="form-label">Phone Number</label><input class="form-input" type="tel"/></div>
+          <div class="form-field"><label class="form-label">City &amp; State <span class="req">*</span></label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">Age <span class="req">*</span></label><input class="form-input" type="number" min="18" max="99"/></div>
+        </div>
+        <hr class="form-divider"/>
+        <div class="form-grid-2">
+          <div class="form-field"><label class="form-label">Gender <span class="req">*</span></label><select class="form-select"><option value="">Select…</option><option>Male</option><option>Female</option><option>Non-binary / prefer to self-describe</option><option>Prefer not to say</option></select></div>
+          <div class="form-field"><label class="form-label">Preferred gender for healer / facilitator</label><select class="form-select"><option value="">No preference</option><option>Male</option><option>Female</option></select></div>
+        </div>
+        <div class="form-field"><label class="form-label">How were you referred to Tikkun HaNefesh Foundation?</label><select class="form-select"><option value="">Select…</option><option>Rabbi or religious leader</option><option>Therapist or counselor</option><option>Friend or family member</option><option>Social media</option><option>Internet search</option><option>Other</option></select></div>
       </div>
     </div>
-
-    <!-- Screener embed area -->
-    <div style="background:var(--ink);padding:3rem;text-align:center;">
-      <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Clinical Screening Tool</p>
-      <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--white);line-height:0.95;margin-bottom:1.25rem;">HEALING PATHWAY<br>ASSESSMENT</h3>
-      <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 2rem;line-height:1.75;">20–25 minutes. Confidential. Reviewed by our clinical team within 2–3 business days.</p>
-
-      <!-- In the live site, this button links to /screening where the React component lives -->
-      <a href="https://claude.ai/chat/11ce0af0-9d6f-46a8-b579-1fed36020dc6"
-         target="_blank"
-         class="btn btn-white"
-         style="font-size:0.875rem;padding:1rem 2.5rem;border-radius:0;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">
-        Launch the Healing Assessment →
-      </a>
-
-      <p style="font-size:0.7rem;color:rgba(255,255,255,0.25);margin-top:1.5rem;font-style:italic;">
-        Developer note: Replace this link with the embedded React screener component at <code style="font-family:monospace;color:rgba(255,255,255,0.4);">/screening</code> — see <em>psychedelic-intake-screener.jsx</em>
-      </p>
+    <div class="form-section">
+      <div class="form-section-head"><div class="form-section-num">02</div><div class="form-section-title">Healing Intention<span class="form-section-sub">What brings you here — in your own words</span></div></div>
+      <div class="form-section-body">
+        <div class="form-field"><label class="form-label">What are you hoping to heal, resolve, or transform? <span class="req">*</span></label><p class="form-hint">Write as much or as little as you’d like. There are no wrong answers.</p><textarea class="form-textarea" rows="5"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Which of the following resonates with where you are right now? <span class="req">*</span></label>
+          <div class="check-col" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="checkbox"/> I’m carrying unresolved grief or loss</label>
+            <label class="check-item"><input type="checkbox"/> I’m stuck in patterns I can’t break through conventional means</label>
+            <label class="check-item"><input type="checkbox"/> I feel spiritually disconnected and want to return to myself</label>
+            <label class="check-item"><input type="checkbox"/> I’ve experienced trauma that hasn’t fully resolved</label>
+            <label class="check-item"><input type="checkbox"/> I’m dealing with anxiety, depression, or emotional dysregulation</label>
+            <label class="check-item"><input type="checkbox"/> I’m at a major life crossroads or transition</label>
+            <label class="check-item"><input type="checkbox"/> I’m seeking deeper meaning, purpose, or spiritual growth</label>
+            <label class="check-item"><input type="checkbox"/> I want to complement or deepen therapy I’m already doing</label>
+            <label class="check-item"><input type="checkbox"/> Something else entirely</label>
+          </div>
+        </div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Have you tried other therapeutic or healing approaches before? <span class="req">*</span></label><p class="form-hint">What worked? What didn’t? What felt missing?</p><textarea class="form-textarea" rows="4"></textarea></div>
+      </div>
     </div>
-
-    <p style="font-size:0.8rem;color:rgba(10,10,10,0.38);text-align:center;margin-top:1.5rem;">Your information is confidential and reviewed only by our clinical team.<br>If you have questions before beginning, <a href="#" onclick="showPage(7);return false;" style="color:var(--ink);text-decoration:underline;">contact us first</a>.</p>
+    <div class="form-section">
+      <div class="form-section-head"><div class="form-section-num">03</div><div class="form-section-title">Mental Health &amp; Medical History<span class="form-section-sub">Reviewed by our clinical team to ensure the right fit and safety</span></div></div>
+      <div class="form-section-body">
+        <p style="font-size:0.875rem;color:rgba(10,10,10,0.5);margin-bottom:1.25rem;font-style:italic;">This section helps us understand what supports your safety and wellbeing. All information is confidential.</p>
+        <div class="form-field"><label class="form-label">Do you have a current therapist, psychiatrist, or mental health provider? <span class="req">*</span></label>
+          <div class="check-group"><label class="check-item"><input type="radio" name="provider"/> Yes</label><label class="check-item"><input type="radio" name="provider"/> No</label><label class="check-item"><input type="radio" name="provider"/> Previously, not currently</label></div>
+        </div>
+        <div class="form-field"><label class="form-label">Have you ever been diagnosed with any of the following? (Select all that apply)</label>
+          <div class="check-col" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="checkbox"/> Anxiety disorder</label>
+            <label class="check-item"><input type="checkbox"/> Depression or mood disorder</label>
+            <label class="check-item"><input type="checkbox"/> PTSD or trauma-related disorder</label>
+            <label class="check-item"><input type="checkbox"/> Bipolar disorder</label>
+            <label class="check-item"><input type="checkbox"/> OCD</label>
+            <label class="check-item"><input type="checkbox"/> ADD / ADHD</label>
+            <label class="check-item"><input type="checkbox"/> Psychosis or schizophrenia spectrum</label>
+            <label class="check-item"><input type="checkbox"/> Eating disorder</label>
+            <label class="check-item"><input type="checkbox"/> Substance use disorder</label>
+            <label class="check-item"><input type="checkbox"/> None of the above</label>
+            <label class="check-item"><input type="checkbox"/> Prefer not to say</label>
+          </div>
+        </div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Are you currently taking any prescription medications? <span class="req">*</span></label>
+          <div class="check-group"><label class="check-item"><input type="radio" name="meds"/> Yes</label><label class="check-item"><input type="radio" name="meds"/> No</label></div>
+        </div>
+        <div class="form-field"><label class="form-label">If yes, please list medications and dosages:</label><p class="form-hint">Used for clinical screening only. Some medications have interactions that affect modality fit.</p><textarea class="form-textarea" rows="3"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Any significant medical conditions or physical health factors we should be aware of?</label><textarea class="form-textarea" rows="3"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Are there any other factors — personal, relational, or situational — our clinical team should know?</label><textarea class="form-textarea" rows="3"></textarea></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-section-head"><div class="form-section-num">04</div><div class="form-section-title">Spiritual Context &amp; Jewish Identity<span class="form-section-sub">Helping us understand your religious world and what matters to you</span></div></div>
+      <div class="form-section-body">
+        <div class="form-field"><label class="form-label">How would you describe your current relationship with Jewish practice? <span class="req">*</span></label>
+          <select class="form-select"><option value="">Select…</option><option>Chassidic / Ultra-Orthodox</option><option>Modern Orthodox</option><option>Traditional / Masorti</option><option>Sephardic / Mizrachi</option><option>Conservative</option><option>Reform / Renewal</option><option>Culturally Jewish but not practicing</option><option>Exploring / in transition</option><option>Other / prefer to describe</option></select>
+        </div>
+        <div class="form-field"><label class="form-label">How central is your Jewish identity to how you approach healing and growth? <span class="req">*</span></label>
+          <div class="check-col" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="radio" name="jewish-centrality"/> Very central — I need this held within a Jewish framework</label>
+            <label class="check-item"><input type="radio" name="jewish-centrality"/> Important — it matters, but I’m flexible</label>
+            <label class="check-item"><input type="radio" name="jewish-centrality"/> Somewhat — I want cultural sensitivity, not a religious framework</label>
+            <label class="check-item"><input type="radio" name="jewish-centrality"/> Not particularly — I’m open to whatever serves the healing</label>
+          </div>
+        </div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Is there anything about your spiritual background you want our team to understand before they meet you?</label><textarea class="form-textarea" rows="4"></textarea></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-section-head"><div class="form-section-num">05</div><div class="form-section-title">Life Context &amp; Readiness<span class="form-section-sub">Understanding your current stability and capacity for this work</span></div></div>
+      <div class="form-section-body">
+        <div class="form-field"><label class="form-label">How would you describe your current life stability? <span class="req">*</span></label>
+          <div class="check-col" style="margin-top:0.5rem;">
+            <label class="check-item"><input type="radio" name="stability"/> Stable — my life is functioning well and I’m ready for deep work</label>
+            <label class="check-item"><input type="radio" name="stability"/> Reasonably stable — some challenges but I’m managing</label>
+            <label class="check-item"><input type="radio" name="stability"/> In transition — things are in flux but I’m grounded enough</label>
+            <label class="check-item"><input type="radio" name="stability"/> Unstable — I’m in active crisis or my life is significantly disrupted</label>
+          </div>
+        </div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Do you have a support system — people you can lean on during a healing process?</label>
+          <div class="check-group"><label class="check-item"><input type="radio" name="support"/> Yes — strong support</label><label class="check-item"><input type="radio" name="support"/> Somewhat — limited support</label><label class="check-item"><input type="radio" name="support"/> No — I’m largely on my own</label></div>
+        </div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Are there practical constraints that should shape how we approach your pathway?</label><p class="form-hint">e.g. budget, travel, Shabbat / Yom Tov scheduling, caretaking responsibilities, work constraints</p><textarea class="form-textarea" rows="3"></textarea></div>
+        <hr class="form-divider"/>
+        <div class="form-field"><label class="form-label">Is there anything else you want to share before we review your assessment?</label><textarea class="form-textarea" rows="4" placeholder="Open space — anything that didn’t fit above."></textarea></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-section-head"><div class="form-section-num">06</div><div class="form-section-title">Consent &amp; Acknowledgment<span class="form-section-sub">Please read and confirm before submitting</span></div></div>
+      <div class="form-section-body">
+        <div class="ack-list">
+          <label class="ack-item"><input type="checkbox"/><span>I understand that this assessment is the beginning of a conversation, not a clinical diagnosis. My responses will be reviewed by Tikkun HaNefesh Foundation’s clinical team.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I understand that Tikkun HaNefesh Foundation is a discernment and placement bridge — not a clinical treatment provider.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I consent to my responses being reviewed by Tikkun HaNefesh Foundation’s clinical team. My information will not be shared outside the organization without my explicit permission, except where safety requires it.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I affirm that I am 18 years of age or older.</span></label>
+          <label class="ack-item"><input type="checkbox"/><span>I understand that I may be contacted within 2–3 business days of submission to discuss my assessment and next steps.</span></label>
+        </div>
+        <div class="form-grid-2" style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(10,10,10,0.08);">
+          <div class="form-field"><label class="form-label">Full Name <span class="req">*</span></label><input class="form-input" type="text"/></div>
+          <div class="form-field"><label class="form-label">Date <span class="req">*</span></label><input class="form-input" type="text" placeholder="MM / DD / YYYY"/></div>
+        </div>
+        <div style="text-align:center;padding:2rem 0 0;">
+          <p style="font-size:0.78rem;color:rgba(10,10,10,0.38);font-style:italic;margin-bottom:1.25rem;">Your assessment will be reviewed by our clinical team at <strong>intake@tikkunhanefesh.org</strong> within 2–3 business days.</p>
+          <a href="#" class="btn btn-dark" style="font-size:0.875rem;padding:1rem 3rem;border-radius:0;">Submit Your Assessment →</a>
+          <p style="margin-top:1rem;font-size:0.72rem;color:rgba(10,10,10,0.3);">Your information is confidential and reviewed only by our clinical team.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
+<section style="background:var(--ink);padding:5rem 2rem;">
+  <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+    <div>
+      <span class="eyebrow eyebrow-gold" style="display:block;margin-bottom:1rem;">Optional — But Recommended</span>
+      <h2 style="font-family:var(--font-display);font-size:2rem;font-weight:900;color:var(--white);line-height:1.1;margin-bottom:1.25rem;text-transform:uppercase;">The Healing Pathway Assessment</h2>
+      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.6);line-height:1.85;margin-bottom:1rem;">Once you’ve submitted the intake form above, we invite you to take one more step: our Healing Pathway Assessment. This is an opportunity for you to get to know yourself better — and for us to develop a richer, deeper understanding of which approaches might genuinely serve you.</p>
+      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.6);line-height:1.85;margin-bottom:1rem;">The assessment is not clinical gatekeeping. It is a window — into your personality, your patterns, and your potential. Many people find the results illuminating on their own, independent of anything that follows.</p>
+      <p style="font-size:0.875rem;color:rgba(255,255,255,0.35);line-height:1.7;margin-bottom:1.75rem;font-style:italic;">20–25 minutes. Confidential. Your results are shared with our clinical team to inform your pathway.</p>
+      <a href="https://claude.ai/chat/11ce0af0-9d6f-46a8-b579-1fed36020dc6" target="_blank" style="display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--font-display);font-weight:700;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;padding:1rem 2rem;text-decoration:none;">Launch the Assessment →</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1px;margin-top:0.5rem;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:1.25rem 1.5rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">What It Covers</p>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.7;">Your history, healing intention, and a three-system personality profile — MBTI, Enneagram, and Big Five — matched against 22 healing modalities.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-top:none;padding:1.25rem 1.5rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">What You Get</p>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.7;">Your top 3 matched modalities, a full alignment chart, contraindication flags, and personalized next steps — reviewed by our clinical team.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-top:none;padding:1.25rem 1.5rem;">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Why It Matters</p>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.7;">The more we understand about who you are, the better we can match you to the right practitioner and the right approach.</p>
+      </div>
+      <div style="background:rgba(181,146,76,0.08);border:1px solid rgba(181,146,76,0.25);border-top:none;padding:1.25rem 1.5rem;">
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7;font-style:italic;">“Many people find the results illuminating — not just for what we learn about them, but for what they learn about themselves.”</p>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
+
 <div class="page-view" id="page-7" style="display:none;">
 <style>
 .contact-hero { background: var(--cream); padding: 8rem 3rem 5rem; }
